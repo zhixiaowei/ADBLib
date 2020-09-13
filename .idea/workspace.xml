@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b16a5440-a526-49e7-a99f-d47ba17b3038" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1hSqOl4P5UOiICeTt4VggHBANbE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ADBLib/src" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.31369662" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\tool\ADBLibSample\ADBLib\src" />
+      <recent name="E:\tool\ADBLibSample\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.Test" />
+      <module name="ADBLibSample" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adb.sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b16a5440-a526-49e7-a99f-d47ba17b3038" name="Default Changelist" comment="" />
+      <created>1600014810291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600014810291</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="218" key="#Project_Structure" timestamp="1600015095609">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="552" y="218" key="#Project_Structure/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600015095609" />
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1600014902373">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600014902373" />
+    <state x="334" y="169" key="new project wizard" timestamp="1600014991762">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="334" y="169" key="new project wizard/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600014991762" />
+  </component>
+</project>

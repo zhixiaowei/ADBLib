@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ADBLib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ADBLib_jar</output-path>
+    <root id="archive" name="ADBLib.jar">
+      <element id="module-output" name="ADBLib" />
+    </root>
+  </artifact>
+</component>
