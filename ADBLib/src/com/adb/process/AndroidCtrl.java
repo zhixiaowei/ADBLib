@@ -1,6 +1,10 @@
 package com.adb.process;
 
 import com.adb.command.andriodCmd.AndroidSystemCmd;
+import com.adb.process.android.AndroidAPP;
+import com.adb.process.android.AndroidFile;
+import com.adb.process.android.AndroidLogcat;
+import com.adb.process.android.IAndroid;
 import com.adb.process.android.context.IContext;
 
 public class AndroidCtrl extends ACtrl{
@@ -24,6 +28,8 @@ public class AndroidCtrl extends ACtrl{
         return false;
     }
 
+//    public swi
+
     /**
      * Android 10 返回键测试可行
      *
@@ -44,14 +50,15 @@ public class AndroidCtrl extends ACtrl{
 
 
     /**
-     *  Android 10测试可行
      *
-     * 获取当前正在运行进程
+     *  Android 10测试可行
+     *  获取当前正在运行进程
+     * @param grep 为空时返回全部
      * @return
      */
-    public String listProcess(){
+    public String listProcess(String grep){
         try{
-            return exec(cmd.listProcess());
+            return exec(cmd.listProcess(grep));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -157,7 +164,7 @@ public class AndroidCtrl extends ACtrl{
     /**
      *
      * 发送广播
-     * @param broadcast
+     * @param
      * @return
      */
     public boolean sendBroadcast(IContext.Intent intent) {
@@ -202,5 +209,17 @@ public class AndroidCtrl extends ACtrl{
             e.printStackTrace();
         }
         return false;
+    }
+
+    public AndroidLogcat managerOfLogcat(){
+        return new AndroidLogcat(this);
+    }
+
+    public AndroidAPP managerOfApp(){
+        return new AndroidAPP(this);
+    }
+
+    public AndroidFile managerOfFile(){
+        return new AndroidFile(this);
     }
 }

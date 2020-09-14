@@ -1,15 +1,13 @@
 package com.adb.process;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.Charset;
 
 public abstract class ACtrl {
 
     private Runtime runtime;
     private String charset = "GBK";//编码格式
+    private boolean isPrintCmd = false;
 
     public ACtrl(){
         runtime = Runtime.getRuntime();
@@ -23,6 +21,14 @@ public abstract class ACtrl {
         if (charset!=null&&!charset.isEmpty()){
             this.charset = charset;
         }
+    }
+
+    /**
+     * 是否打印执行的命令
+     * @param isPrintCmd
+     */
+    public void isPrintCmd(boolean isPrintCmd){
+        this.isPrintCmd = isPrintCmd;
     }
 
     /**
@@ -45,6 +51,10 @@ public abstract class ACtrl {
      * @throws IOException
      */
     public String exec(String cmd) throws IOException {
+        if (isPrintCmd){
+            System.out.println(cmd);
+        }
+
         return getReply(runtime.exec(cmd));
     }
 
@@ -54,10 +64,34 @@ public abstract class ACtrl {
      * @return
      * @throws IOException
      */
-    public void execPrint(String cmd) throws IOException {
+    public void execAPrint(String cmd) throws IOException {
+        if (isPrintCmd){
+            System.out.println(cmd);
+        }
+
         print(runtime.exec(cmd));
     }
 
+    /**
+     * 执行并将输出保存，适用于日志
+     * @param cmd 执行的命令
+     * @param path 保存路径
+     * @param isPrintOutput
+     * @throws IOException
+     */
+    public void execASave(String cmd,String path,boolean isPrintOutput) throws IOException {
+
+        if (isPrintCmd){
+            System.out.println(cmd);
+        }
+
+        save(runtime.exec(cmd),path,isPrintOutput);
+    }
+
+    /**
+     * 打印输出
+     * @param process
+     */
     private void print(Process process) {
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
@@ -71,6 +105,45 @@ public abstract class ACtrl {
             String errorLine;
             while ((errorLine = error.readLine())!=null) {
                 System.out.println(errorLine);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 保存及打印输出
+     * @param process
+     * @param path
+     * @param isPrint
+     */
+    private void save(Process process,String path,boolean isPrint) {
+        try{
+            RandomAccessFile file = new RandomAccessFile(path,"rw");
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
+
+            file.seek(file.length());
+
+            String line;
+            while ((line=br.readLine())!=null) {
+                if (isPrint){
+                    System.out.println(line);
+                }
+
+                file.writeBytes(line+"\r\n");
+            }
+
+            BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream(),Charset.forName(charset)));
+            String errorLine;
+            while ((errorLine = error.readLine())!=null) {
+
+                if (isPrint){
+                    System.out.println(errorLine+"\r\n");
+                }
+
+                file.writeBytes(errorLine);
+
             }
 
         }catch (Exception e){

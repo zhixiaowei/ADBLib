@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ADBLib:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b16a5440-a526-49e7-a99f-d47ba17b3038" name="Default Changelist" comment="" />
+    <list default="true" id="b16a5440-a526-49e7-a99f-d47ba17b3038" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidAppCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidAppCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidLogcatCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidLogcatCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidSystemCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidSystemCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/ACtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/ACtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/AndroidCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/AndroidCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidAPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidAPP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidLogcat.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidLogcat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidAPPSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidAPPSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidCommonSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidCommonSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidFileSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidFileSample.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1hSqOl4P5UOiICeTt4VggHBANbE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -26,7 +56,33 @@
       <recent name="E:\tool\ADBLibSample\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AndroidAPPSample">
+    <configuration name="AndroidAPPSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.android.AndroidAPPSample" />
+      <module name="ADBLibSample" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adb.sample.android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AndroidLogcatSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.android.AndroidLogcatSample" />
+      <module name="ADBLibSample" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adb.sample.android.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.adb.sample.Test" />
       <module name="ADBLibSample" />
@@ -42,6 +98,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AndroidAPPSample" />
+        <item itemvalue="Application.AndroidLogcatSample" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -76,13 +134,37 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="218" key="#Project_Structure/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600015095609" />
-    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1600014902373">
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1600101106975">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600014902373" />
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
+    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1600101106975">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.center/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
+    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1600101106975">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.left/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
+    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1600101106975">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="283" key="GridCell.Tab.0.right/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1600089335508">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600089335508" />
     <state x="334" y="169" key="new project wizard" timestamp="1600014991762">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="334" y="169" key="new project wizard/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600014991762" />
+    <state x="616" y="260" key="run.anything.popup" timestamp="1600097192895">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="616" y="260" key="run.anything.popup/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600097192895" />
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1600092610984">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600092610984" />
   </component>
 </project>

@@ -9,7 +9,7 @@ import com.adb.process.android.AndroidFile;
 public class AndroidFileSample {
 
     public static void main(String[] args) {
-        AndroidFile fileCtrl = new AndroidFile(new AndroidCtrl());
+        AndroidFile fileCtrl = new AndroidCtrl().managerOfFile();
 
         //从Android拷贝文件到电脑
         fileCtrl.copyFileAndroid2Window("/mnt/sdcard/image.png","E:\\Download\\image.png");

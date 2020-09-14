@@ -12,12 +12,14 @@ public class AndroidCommonSample {
         AndroidCtrl androidCtrl = new AndroidCtrl();
 
         androidCtrl.setCharset("GBK");//设置编码格式，默认为GBK
+        androidCtrl.isPrintCmd(true);//是否打印执行的命令
+
 
         //获取已连接设备
         String devices = androidCtrl.listDevices();
 
         //获取正在运行的进程
-        String process = androidCtrl.listProcess();
+        String process = androidCtrl.listProcess(null);
 
         //发送广播
         IContext.Intent intent =

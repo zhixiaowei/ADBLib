@@ -16,13 +16,20 @@ public class AndroidAPPSample {
         System.out.println(list);
 
         //卸载应用
-        boolean uninstallResult = appCtrl.uninstall("com.hxw.fuck");
+        boolean uninstallResult = appCtrl.uninstall("com.taobao.idlefish");
 
         //安装应用，非debug签名的apk，如果已经安装，则重新安装
         boolean installResult = appCtrl.install("E:\\BaiduNetdiskDownload\\FiddlerSetup.apk",false,true);
 
         //强制停止应用
-        appCtrl.stopApp("com.hxw.fuck");
+        appCtrl.stopApp("com.taobao.idlefish");
+
+        //读取应用的信息
+        String msg = appCtrl.readAppInfo("com.xiaomi.youpin");
+        System.out.println(msg);
+
+        //如果应用正在运行，获取该进程的ID
+        String pid = appCtrl.getPid("com.taobao.idlefish");
 
     }
 }

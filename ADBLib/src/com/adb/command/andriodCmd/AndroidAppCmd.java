@@ -67,4 +67,12 @@ public class AndroidAppCmd {
         return "adb shell pm clear "+packageName;
     }
 
+    /**
+     * 读取应用的基本信息
+     * @param packageName
+     * @return
+     */
+    public String readAppInfo(String packageName) {
+        return "adb shell dumpsys package "+packageName;
+    }
 }

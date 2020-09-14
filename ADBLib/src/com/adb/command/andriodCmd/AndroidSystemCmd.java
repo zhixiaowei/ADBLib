@@ -60,8 +60,12 @@ public class AndroidSystemCmd {
      * 获取进程列表
      * @return
      */
-    public String listProcess(){
-        return "adb shell ps";
+    public String listProcess(String grep){
+        if (grep == null||grep.isEmpty()){
+            return "adb shell ps";
+        }else{
+            return "adb shell ps|grep "+grep;
+        }
     }
 
     /**

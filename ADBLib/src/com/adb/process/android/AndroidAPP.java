@@ -125,6 +125,43 @@ public class AndroidAPP extends IAndroid {
         return "";
     }
 
+    /**
+     * 根据包名获取PID
+     * @param packageName
+     * @return
+     */
+    public String getPid(String packageName) {
+        try {
+            String[] msg = androidCtrl.exec(androidCtrl.listProcess(packageName)).split(" ");
+
+            for (int i = 1;i<msg.length;i++){
+                String temp = msg[i];
+
+                if (!temp.isEmpty()){
+                    return temp;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * 读取应用信息
+     * @param packageName
+     * @return
+     */
+    public String readAppInfo(String packageName){
+        try{
+            return androidCtrl.exec(cmd.readAppInfo(packageName));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return "";
+    }
 
     /**
      * 清空APP数据

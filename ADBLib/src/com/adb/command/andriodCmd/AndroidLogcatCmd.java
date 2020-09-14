@@ -17,6 +17,7 @@ public class AndroidLogcatCmd {
 
     /**
      * 保存日志至指定文件
+     *
      * @param path
      * @return
      */
@@ -38,4 +39,7 @@ public class AndroidLogcatCmd {
         return "logcat -v time -f /sdcard/test.txt -s TAG:"+tag;
     }
 
+    public String logcatByPid(String pid) {
+        return "adb shell logcat --pid "+pid;
+    }
 }
