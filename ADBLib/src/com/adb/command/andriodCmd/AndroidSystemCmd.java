@@ -96,4 +96,32 @@ public class AndroidSystemCmd {
     public String inputKeyEvent(int event){
         return "adb shell input keyevent "+event;
     }
+
+    /**
+     * 滑屏
+     * @param startX
+     * @param startY
+     * @param endX
+     * @param endY
+     * @return
+     */
+    public String swipe(int startX, int startY, int endX, int endY) {
+        return "adb shell input swipe "+startX+" "+startY+" "+endX+" "+endY;
+    }
+
+    /**
+     * 产品型号，如：Nexus 5
+     * @return
+     */
+    public String productModel(){
+        return "adb shell getprop ro.product.model";
+    }
+
+    /**
+     * 获取电池信息
+     * @return
+     */
+    public String getBatteryInfo() {
+        return "adb shell dumpsys battery";
+    }
 }

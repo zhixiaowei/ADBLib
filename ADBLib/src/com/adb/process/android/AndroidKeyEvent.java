@@ -9,9 +9,12 @@ import com.adb.process.AndroidCtrl;
  */
 public class AndroidKeyEvent extends IAndroid {
     public final static int POWER = 26;//电源键
+    public final static int HOME = 3;//HOME键
     public final static int BACK = 4;//返回键 Android 10测试可行
     public final static int VOLUME_ADD = 24;//音量增加
     public final static int VOLUME_REDUCE  = 25;//音量减低
+    public final static int MENU = 82;//菜单
+
     public final static int VOLUME_MUTE = 164;//静音
 
     public final static int MEDIA_PLAY_PAUSE = 85;//暂停/播放

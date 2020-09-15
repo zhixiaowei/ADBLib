@@ -21,14 +21,33 @@ public class AndroidCtrl extends ACtrl{
      */
     public boolean click(int x,int y){
         try{
-            String  msg = exec(cmd.click(226,920));
+            exec(cmd.click(226,920));
+            return true;
         }catch (Exception e){
             e.printStackTrace();
         }
         return false;
     }
 
-//    public swi
+    /**
+     * 滑屏
+     * 参数 300 1000 300 500 分别表示起始点x坐标 起始点y坐标 结束点x坐标 结束点y坐标
+     * @param startX
+     * @param startY
+     * @param endX
+     * @param endY
+     * @return
+     */
+    public boolean swipe(int startX,int startY,int endX,int endY){
+        try{
+            exec(cmd.swipe(startX,startY,endX,endY));
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 
     /**
      * Android 10 返回键测试可行

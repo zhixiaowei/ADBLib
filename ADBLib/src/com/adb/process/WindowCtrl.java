@@ -30,15 +30,16 @@ public class WindowCtrl extends ACtrl {
     }
 
     /**
-     * 无法关闭之前打开的小黑框
+     * 关闭所有打开的小黑框
      */
-//    public void exitCmdView(){
-//        try{
+    public void exitCmdView(){
+        try{
 //            exec("cmd /c exit");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
+            exec("cmd.exe /C start wmic process where name='cmd.exe' call terminate");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 打开记事本

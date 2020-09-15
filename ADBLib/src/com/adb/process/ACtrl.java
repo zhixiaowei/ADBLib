@@ -9,6 +9,9 @@ public abstract class ACtrl {
     private String charset = "GBK";//编码格式
     private boolean isPrintCmd = false;
 
+    private boolean isSingleton = false;
+    private Process singletonProcess;
+
     public ACtrl(){
         runtime = Runtime.getRuntime();
     }
@@ -151,6 +154,11 @@ public abstract class ACtrl {
         }
     }
 
+    /**
+     * 获取应答
+     * @param process
+     * @return
+     */
     private String getReply(Process process){
 
         try{

@@ -1,7 +1,6 @@
 package com.adb.sample.android;
 
 import com.adb.process.AndroidCtrl;
-import com.adb.process.android.AndroidAPP;
 import com.adb.process.android.AndroidLogcat;
 
 public class AndroidLogcatSample {
