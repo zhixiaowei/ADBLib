@@ -775,8 +775,8 @@ import java.io.IOException;
  */
 public class AndroidSystem extends IAndroid{
 
-    public AndroidSystem(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidSystem(AndroidCtrl context) {
+        super(context);
     }
 
     AndroidSystemCmd cmd = new AndroidSystemCmd();
@@ -787,7 +787,7 @@ public class AndroidSystem extends IAndroid{
      */
     public String getProductModel(){
         try {
-            return androidCtrl.exec(cmd.productModel());
+            return context.exec(cmd.productModel());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -815,7 +815,7 @@ public class AndroidSystem extends IAndroid{
      */
     public String  getBatteryInfo(){
         try {
-            return androidCtrl.exec(cmd.getBatteryInfo());
+            return context.exec(cmd.getBatteryInfo());
         } catch (IOException e) {
             e.printStackTrace();
         }

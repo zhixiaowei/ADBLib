@@ -9,8 +9,8 @@ public class AndroidLogcat extends IAndroid {
 
     private AndroidLogcatCmd cmd = new AndroidLogcatCmd();
 
-    public AndroidLogcat(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidLogcat(AndroidCtrl context) {
+        super(context);
     }
 
     /**
@@ -24,7 +24,7 @@ public class AndroidLogcat extends IAndroid {
     @Deprecated
     public void save2WindowFile(String path){
         try{
-            androidCtrl.exec(cmd.logcat2WindowFile(path));
+            context.exec(cmd.logcat2WindowFile(path));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -38,7 +38,7 @@ public class AndroidLogcat extends IAndroid {
      */
     public void save2WindowFile2(boolean isPrint,String path,String grep){
         try{
-            androidCtrl.execASave(cmd.logcat(grep),path,isPrint);
+            context.execASave(cmd.logcat(grep),path,isPrint);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class AndroidLogcat extends IAndroid {
      */
     public void save2AndroidFile(String path,String tag){
         try {
-            androidCtrl.exec(cmd.logcat2AndroidFile(path, tag));
+            context.exec(cmd.logcat2AndroidFile(path, tag));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -63,7 +63,7 @@ public class AndroidLogcat extends IAndroid {
      */
     public void print(String grep){
         try {
-            androidCtrl.execAPrint(cmd.logcat(grep));
+            context.execAPrint(cmd.logcat(grep));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class AndroidLogcat extends IAndroid {
      */
     public void printByPid(String packageName){
         try {
-            androidCtrl.execAPrint(cmd.logcatByPid(packageName));
+            context.execAPrint(cmd.logcatByPid(packageName));
         }catch (Exception e){
             e.printStackTrace();
         }

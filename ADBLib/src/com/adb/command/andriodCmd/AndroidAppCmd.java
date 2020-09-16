@@ -75,4 +75,8 @@ public class AndroidAppCmd {
     public String readAppInfo(String packageName) {
         return "adb shell dumpsys package "+packageName;
     }
+
+    public String readAppInstallPath(String packageName) {
+        return "adb shell pm path "+packageName;
+    }
 }

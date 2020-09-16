@@ -17,8 +17,8 @@ public class AndroidMemory extends IAndroid{
 
     private AndroidMemoryCmd cmd = new AndroidMemoryCmd();
 
-    public AndroidMemory(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidMemory(AndroidCtrl context) {
+        super(context);
     }
 
     /**
@@ -28,14 +28,14 @@ public class AndroidMemory extends IAndroid{
      * @param packageName
      */
     public boolean sendTrimMemory(String packageName,String trimLevel){
-        String pid = androidCtrl.managerOfApp().getPid(packageName);
+        String pid = context.managerOfApp().getPid(packageName);
 
         if (pid.isEmpty()){
             return false;
         }
 
         try {
-            androidCtrl.exec(cmd.sendTrimMemory(pid,trimLevel));
+            context.exec(cmd.sendTrimMemory(pid,trimLevel));
             return true;
         } catch (IOException e) {
             e.printStackTrace();

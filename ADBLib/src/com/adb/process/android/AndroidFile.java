@@ -9,8 +9,8 @@ public class AndroidFile extends IAndroid {
 
     AndroidFileCmd cmd = new AndroidFileCmd();
 
-    public AndroidFile(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidFile(AndroidCtrl context) {
+        super(context);
     }
 
     /**
@@ -23,7 +23,7 @@ public class AndroidFile extends IAndroid {
      */
     public String copyFileAndroid2Window(String androidPath,String windowPath){
         try {
-            return androidCtrl.exec(cmd.copyFileAndroid2Window(androidPath, windowPath));
+            return context.exec(cmd.copyFileAndroid2Window(androidPath, windowPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class AndroidFile extends IAndroid {
      */
     public String copyFileWindow2Android(String androidPath,String windowPath){
         try {
-            return androidCtrl.exec(cmd.copyFileWindow2Android(androidPath, windowPath));
+            return context.exec(cmd.copyFileWindow2Android(androidPath, windowPath));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,7 +56,7 @@ public class AndroidFile extends IAndroid {
      */
     public String readTextFile(String path){
         try {
-            return androidCtrl.exec(cmd.readTextFile(path));
+            return context.exec(cmd.readTextFile(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,7 +71,7 @@ public class AndroidFile extends IAndroid {
      */
     public String listDir(String path){
         try {
-            return androidCtrl.exec(cmd.listDir(path));
+            return context.exec(cmd.listDir(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,7 +87,7 @@ public class AndroidFile extends IAndroid {
      */
     public String deleteDir(boolean isDelSelf,String path){
         try {
-            return androidCtrl.exec(cmd.delDir(isDelSelf,path));
+            return context.exec(cmd.delDir(isDelSelf,path));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -104,7 +104,7 @@ public class AndroidFile extends IAndroid {
      */
     public String delDirFileBySuffix(String dir,String suffix){
         try {
-            return androidCtrl.exec(cmd.delDirFileBySuffix(dir, suffix));
+            return context.exec(cmd.delDirFileBySuffix(dir, suffix));
         } catch (IOException e) {
             e.printStackTrace();
         }

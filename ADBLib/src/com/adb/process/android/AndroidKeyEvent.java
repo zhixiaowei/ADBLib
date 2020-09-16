@@ -28,11 +28,11 @@ public class AndroidKeyEvent extends IAndroid {
     public final static int LIGHT_UP = 224;//点亮屏幕
     public final static int LIGHT_OFF = 223;//熄灭屏幕
 
-    public AndroidKeyEvent(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidKeyEvent(AndroidCtrl context) {
+        super(context);
     }
 
     public void input(int key){
-       androidCtrl.inputKeyEvent(key);
+       context.inputKeyEvent(key);
     }
 }

@@ -34,7 +34,7 @@ public class AndroidCommonSample {
         androidCtrl.sendBroadcast(intent);//发送广播
 
         //不带参数启动Activity
-        androidCtrl.startActivity("com.hxw.fuck","com.hxw.fuck.MainActivity");
+//        androidCtrl.startActivity("com.hxw.fuck","com.hxw.fuck.MainActivity");
 
         //带参数启动Activity
         IContext.Intent intent2 = new ActivityIntentBuilder("android.intent.action.TestActivity",
@@ -42,18 +42,18 @@ public class AndroidCommonSample {
                 "com.huangxiaowei.annotationtest.TestActivity")
                 .addExtra("KEY","这是一个Value")
                 .build();
-        androidCtrl.startActivity(intent2);
+//        androidCtrl.startActivity(intent2);
 
         //不带参数启动Service
-        androidCtrl.startService("com.hxw.fuck","com.hxw.fuck.MainService");
+//        androidCtrl.startService("com.hxw.fuck","com.hxw.fuck.MainService");
 
         //带参数启动Service
-        IContext.Intent intent3 = new ServiceInentBuilder("com.huangxiaowei.annotationtest",
-                "com.huangxiaowei.annotationtest.TestService")
-                .addExtra("KEY","这是一个Value")
-                .build();
-
-        androidCtrl.startService(intent3);
+//        IContext.Intent intent3 = new ServiceInentBuilder("com.huangxiaowei.annotationtest",
+//                "com.huangxiaowei.annotationtest.TestService")
+//                .addExtra("KEY","这是一个Value")
+//                .build();
+//
+//        androidCtrl.startService(intent3);
 
         //点击指定坐标
         androidCtrl.click(230,449);

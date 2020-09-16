@@ -3,12 +3,14 @@ package com.adb.process.android;
 import com.adb.process.AndroidCtrl;
 import com.adb.command.andriodCmd.AndroidAppCmd;
 
+import java.io.IOException;
+
 public class AndroidAPP extends IAndroid {
 
     private AndroidAppCmd cmd = new AndroidAppCmd();
 
-    public AndroidAPP(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidAPP(AndroidCtrl context) {
+        super(context);
     }
     
     /**
@@ -20,7 +22,7 @@ public class AndroidAPP extends IAndroid {
      */
     public boolean install(String windowPath,boolean isDebugApk,boolean isReInstall){
         try{
-            String msg = androidCtrl.exec(cmd.install(windowPath, isDebugApk, isReInstall));
+            String msg = context.exec(cmd.install(windowPath, isDebugApk, isReInstall));
 
             if (msg.toLowerCase().contains("success")){
                 return true;
@@ -43,7 +45,7 @@ public class AndroidAPP extends IAndroid {
      */
     public boolean uninstall(String packageName){
         try{
-            String msg = androidCtrl.exec(cmd.uninstall(packageName));
+            String msg = context.exec(cmd.uninstall(packageName));
 
             if (msg.toLowerCase().contains("success")){
                 return true;
@@ -67,7 +69,7 @@ public class AndroidAPP extends IAndroid {
      */
     public boolean stopApp(String packageName){
         try {
-            androidCtrl.exec(cmd.stopApp(packageName));
+            context.exec(cmd.stopApp(packageName));
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -85,7 +87,7 @@ public class AndroidAPP extends IAndroid {
      */
     public String listApp(){
         try{
-            return androidCtrl.exec(cmd.listAPP());
+            return context.exec(cmd.listAPP());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -101,7 +103,7 @@ public class AndroidAPP extends IAndroid {
      */
     public String listSystemApp(){
         try{
-            return androidCtrl.exec(cmd.listSystemAPP());
+            return context.exec(cmd.listSystemAPP());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -117,7 +119,7 @@ public class AndroidAPP extends IAndroid {
      */
     public String list3App(){
         try{
-            return androidCtrl.exec(cmd.list3APP());
+            return context.exec(cmd.list3APP());
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -132,7 +134,7 @@ public class AndroidAPP extends IAndroid {
      */
     public String getPid(String packageName) {
         try {
-            String[] msg = androidCtrl.exec(androidCtrl.listProcess(packageName)).split(" ");
+            String[] msg = context.exec(context.listProcess(packageName)).split(" ");
 
             for (int i = 1;i<msg.length;i++){
                 String temp = msg[i];
@@ -155,7 +157,7 @@ public class AndroidAPP extends IAndroid {
      */
     public String readAppInfo(String packageName){
         try{
-            return androidCtrl.exec(cmd.readAppInfo(packageName));
+            return context.exec(cmd.readAppInfo(packageName));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -170,13 +172,29 @@ public class AndroidAPP extends IAndroid {
      */
     public boolean cleanAPPData(String packageName){
         try{
-            androidCtrl.exec(cmd.cleanAPPData(packageName));
+            context.exec(cmd.cleanAPPData(packageName));
             return true;
         }catch (Exception e){
             e.printStackTrace();
         }
 
         return false;
+    }
+
+    /**
+     * 获取应用安装路径
+     * @param packageName 不能为空
+     * @return
+     */
+    public String readAppInstallPath(String packageName){
+
+        try {
+           return context.exec(cmd.readAppInstallPath(packageName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
     }
 
 }

@@ -9,8 +9,8 @@ public class AndroidHardware extends IAndroid {
 
     AndroidHardwareCmd cmd = new AndroidHardwareCmd();
 
-    public AndroidHardware(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public AndroidHardware(AndroidCtrl context) {
+        super(context);
     }
 
      /* 获取屏幕分辨率
@@ -18,7 +18,7 @@ public class AndroidHardware extends IAndroid {
       */
     public String screenSize(){
         try {
-            return androidCtrl.exec(cmd.screenSize());
+            return context.exec(cmd.screenSize());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,7 +32,7 @@ public class AndroidHardware extends IAndroid {
      */
     public String screenDensity(){
         try {
-            return androidCtrl.exec(cmd.screenDensity());
+            return context.exec(cmd.screenDensity());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class AndroidHardware extends IAndroid {
      */
     public String screenInfo(){
         try {
-            return androidCtrl.exec(cmd.screenInfo());
+            return context.exec(cmd.screenInfo());
         } catch (IOException e) {
             e.printStackTrace();
         }
