@@ -1,7 +1,9 @@
 package com.adb.sample.android;
 
 import com.adb.process.AndroidCtrl;
-import com.adb.process.android.AndroidLogcat;
+import com.adb.process.android.logcat.AndroidLogcat;
+import com.adb.process.android.logcat.LogcatConfig;
+import com.adb.process.android.logcat.LogcatConfigBuilder;
 
 public class AndroidLogcatSample {
     public static void main(String[] args) {
@@ -23,6 +25,15 @@ public class AndroidLogcatSample {
         //配合进程ID过滤日志
         logcat.printByPid(pid);//将Pid作为过滤条件
 
+
+        LogcatConfig config = new LogcatConfigBuilder()
+                .filterTAG("BindView")
+                .showFormat(LogcatConfig.FORMAT_BRIEF)
+                .filterLevel(LogcatConfig.LEVEL_W)
+                .filter("3")
+                .build();
+
+        logcat.print(config);
 
 
     }

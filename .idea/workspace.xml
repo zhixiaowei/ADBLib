@@ -7,19 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b16a5440-a526-49e7-a99f-d47ba17b3038" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidAppCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidAppCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidLogcatCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidLogcatCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidSystemCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidSystemCmd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/ACtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/ACtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/AndroidCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/AndroidCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidAPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidAPP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidLogcat.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidLogcat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/context/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidKeyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidKeyEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidLogcat.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/logcat/AndroidLogcat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/context/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/adb/sample/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidAPPSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidAPPSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidCommonSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidCommonSample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidFileSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidFileSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidKeyEventSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidKeyEventSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,18 +45,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ADBLib/src" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.31369662" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.adb.command.andriodCmd" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\tool\ADBLibSample\ADBLib\src" />
       <recent name="E:\tool\ADBLibSample\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AndroidAPPSample">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="AndroidAPPSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.adb.sample.android.AndroidAPPSample" />
       <module name="ADBLibSample" />
@@ -98,9 +102,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.AndroidAPPSample" />
         <item itemvalue="Application.AndroidLogcatSample" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -134,26 +138,42 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="218" key="#Project_Structure/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600015095609" />
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1600101106975">
+    <state x="703" y="362" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600101520540">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
-    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1600101106975">
+    <state x="703" y="362" key="#com.intellij.fileTypes.FileTypeChooser/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101520539" />
+    <state x="765" y="269" key="#com.intellij.ide.util.MemberChooser" timestamp="1600360854391">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.center/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
-    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1600101106975">
+    <state x="765" y="269" key="#com.intellij.ide.util.MemberChooser/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600360854391" />
+    <state x="92" y="132" width="1736" height="856" key="DiffContextDialog" timestamp="1600359409919">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.left/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
-    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1600101106975">
+    <state x="92" y="132" width="1736" height="856" key="DiffContextDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600359409919" />
+    <state width="1877" height="453" key="GridCell.Tab.0.bottom" timestamp="1600361644212">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.right/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600101106975" />
-    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1600089335508">
+    <state width="1877" height="453" key="GridCell.Tab.0.bottom/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600361644212" />
+    <state width="1877" height="453" key="GridCell.Tab.0.center" timestamp="1600361644212">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600089335508" />
+    <state width="1877" height="453" key="GridCell.Tab.0.center/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600361644212" />
+    <state width="1877" height="453" key="GridCell.Tab.0.left" timestamp="1600361644211">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="453" key="GridCell.Tab.0.left/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600361644211" />
+    <state width="1877" height="453" key="GridCell.Tab.0.right" timestamp="1600361644212">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="453" key="GridCell.Tab.0.right/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600361644212" />
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1600350044155">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600350044155" />
+    <state x="434" y="140" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600354662223">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="434" y="140" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600354662223" />
     <state x="334" y="169" key="new project wizard" timestamp="1600014991762">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -162,9 +182,9 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="616" y="260" key="run.anything.popup/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600097192895" />
-    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1600092610984">
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1600353021457">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600092610984" />
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600353021457" />
   </component>
 </project>

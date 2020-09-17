@@ -10,8 +10,8 @@ public class AndroidKeyEventSample {
     public static void main(String[] args) {
 
         AndroidCtrl android = new AndroidCtrl();
-        android.inputKeyEvent(AndroidKeyEvent.BACK);//返回键
-        android.inputKeyEvent(AndroidKeyEvent.VOLUME_ADD);//音量增加键
+        android.inputKeyEvent(AndroidKeyEvent.KEYCODE_BACK);//返回键
+        android.inputKeyEvent(AndroidKeyEvent.KEYCODE_VOLUME_ADD);//音量增加键
 
         //下面这种方法也可
 //        AndroidKeyEvent androidKeyEvent = new AndroidKeyEvent(new AndroidCtrl());

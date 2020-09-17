@@ -1,7 +1,8 @@
-package com.adb.process.android;
+package com.adb.process.android.logcat;
 
 import com.adb.command.andriodCmd.AndroidLogcatCmd;
 import com.adb.process.AndroidCtrl;
+import com.adb.process.android.IAndroid;
 
 import java.io.IOException;
 
@@ -69,8 +70,6 @@ public class AndroidLogcat extends IAndroid {
         }
     }
 
-
-
     /**
      * 根据PID打印日志和可以配合getPid使用
      * @param packageName
@@ -82,5 +81,23 @@ public class AndroidLogcat extends IAndroid {
             e.printStackTrace();
         }
     }
+
+    public void print(LogcatConfig config){
+        try {
+            context.execAPrint(config.cmd,config.grep);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void save2WindowFile(LogcatConfig config,String path,boolean isPrint){
+        try {
+            context.execASave(config.cmd,path,isPrint);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

@@ -3,9 +3,13 @@ package com.adb.process;
 import com.adb.command.andriodCmd.AndroidSystemCmd;
 import com.adb.process.android.AndroidAPP;
 import com.adb.process.android.AndroidFile;
-import com.adb.process.android.AndroidLogcat;
-import com.adb.process.android.IAndroid;
+import com.adb.process.android.logcat.AndroidLogcat;
 import com.adb.process.android.context.IContext;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 public class AndroidCtrl extends ACtrl{
 
@@ -130,5 +134,60 @@ public class AndroidCtrl extends ACtrl{
 
     public AndroidFile managerOfFile(){
         return new AndroidFile(this);
+    }
+
+
+    /**
+     * 执行cmd并实时输出（适用于持续输出的命令，如日志）
+     * @param cmd
+     * @return
+     * @throws IOException
+     */
+    public void execAPrint(String cmd,String grep) throws IOException {
+        if (isPrintCmd){
+            System.out.println(cmd);
+        }
+
+        if (grep == null||grep.trim().isEmpty()){
+            super.print(runtime.exec(cmd));
+        }else{
+            print(runtime.exec(cmd),grep);
+        }
+
+    }
+
+    /**
+     *
+     * 由于 grep 的指令会导致输入流的处理出现堵塞，输出的数据会相对滞后于正常命令行的输出（肉眼可见），采用contains替代解决该问题
+     * 该方案下运行数据与命令行输出的数据时间上相差无几
+     *
+     * 打印输出
+     * @param process
+     */
+    private void print(Process process,String grep) {
+        if (isPrintCmd){
+            System.out.println("grep "+grep);
+        }
+
+        try{
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
+
+            String line;
+
+            while ((line=br.readLine())!=null) {
+                if (line.contains(grep)){
+                    System.out.println(line);
+                }
+            }
+
+            BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream(),Charset.forName(charset)));
+            String errorLine;
+            while ((errorLine = error.readLine())!=null) {
+                System.out.println(errorLine);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

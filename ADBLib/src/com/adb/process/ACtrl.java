@@ -5,12 +5,9 @@ import java.nio.charset.Charset;
 
 public abstract class ACtrl {
 
-    private Runtime runtime;
-    private String charset = "GBK";//编码格式
-    private boolean isPrintCmd = false;
-
-    private boolean isSingleton = false;
-    private Process singletonProcess;
+    protected Runtime runtime;
+    protected String charset = "GBK";//编码格式
+    protected boolean isPrintCmd = false;
 
     public ACtrl(){
         runtime = Runtime.getRuntime();
@@ -95,11 +92,12 @@ public abstract class ACtrl {
      * 打印输出
      * @param process
      */
-    private void print(Process process) {
+    protected void print(Process process) {
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
 
             String line;
+
             while ((line=br.readLine())!=null) {
                 System.out.println(line);
             }

@@ -1,7 +1,8 @@
-package com.adb.process.android;
+package com.adb.process.android.context;
 
 import com.adb.command.andriodCmd.ActivityCmd;
 import com.adb.process.AndroidCtrl;
+import com.adb.process.android.IAndroid;
 import com.adb.process.android.context.IContext;
 
 public class Activity extends IAndroid {
@@ -30,7 +31,7 @@ public class Activity extends IAndroid {
      * @param intent
      * @return
      */
-    public boolean startActivity(IContext.Intent intent) {
+    public boolean start(IContext.Intent intent) {
         try{
             String msg = context.exec(intent.cmd);
             System.out.println(msg);
@@ -49,7 +50,7 @@ public class Activity extends IAndroid {
      * 注：如果该Activity没有在AndroidManifest中声明intent-filter/Action/category，则无法启动
      * @return
      */
-    public boolean startActivity(String packageName,String canonicalName){
+    public boolean start(String packageName,String canonicalName){
 
         if (!canonicalName.startsWith(packageName)){
             canonicalName = packageName+"."+canonicalName;
@@ -65,7 +66,7 @@ public class Activity extends IAndroid {
         return false;
     }
 
-    public boolean startActivity(String packageName){
+    public boolean start(String packageName){
 
         try{
             String msg = context.exec(cmd.startActivity(packageName));

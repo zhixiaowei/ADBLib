@@ -1,7 +1,9 @@
 package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
-import com.adb.process.android.Activity;
+import com.adb.process.android.logcat.AndroidLogcat;
+import com.adb.process.android.logcat.LogcatConfig;
+import com.adb.process.android.logcat.LogcatConfigBuilder;
 
 import java.io.IOException;
 
@@ -10,10 +12,15 @@ public class Test {
 
         AndroidCtrl android = new AndroidCtrl();
         android.isPrintCmd(true);
-        Activity activity = new Activity(android);
+        LogcatConfig config = new LogcatConfigBuilder()
+                .filterTAG("BindView")
+                .showFormat(LogcatConfig.FORMAT_BRIEF)
+                .filterLevel(LogcatConfig.LEVEL_W)
+                .filter("3")
+                .build();
 
-        String a = activity.foregroundActivity();
-        System.out.println(a);
+        AndroidLogcat logcat = new AndroidLogcat(android);
+        logcat.print(config);
 
     }
 }
