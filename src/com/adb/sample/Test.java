@@ -1,26 +1,18 @@
 package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
-import com.adb.process.android.logcat.AndroidLogcat;
-import com.adb.process.android.logcat.LogcatConfig;
-import com.adb.process.android.logcat.LogcatConfigBuilder;
+import com.adb.process.android.AndroidHardware;
+import com.adb.process.android.context.Activity;
 
 import java.io.IOException;
 
 public class Test {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        AndroidCtrl android = new AndroidCtrl();
-        android.isPrintCmd(true);
-        LogcatConfig config = new LogcatConfigBuilder()
-                .filterTAG("BindView")
-                .showFormat(LogcatConfig.FORMAT_BRIEF)
-                .filterLevel(LogcatConfig.LEVEL_W)
-                .filter("3")
-                .build();
+        AndroidCtrl context = new AndroidCtrl();
+        AndroidHardware hardware = new AndroidHardware(context);
 
-        AndroidLogcat logcat = new AndroidLogcat(android);
-        logcat.print(config);
-
+        String model = hardware.devModel();
+        System.out.println("当前设备的型号为"+model);
     }
 }

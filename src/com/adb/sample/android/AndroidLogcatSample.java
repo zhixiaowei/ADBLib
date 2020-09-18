@@ -26,11 +26,12 @@ public class AndroidLogcatSample {
         logcat.printByPid(pid);//将Pid作为过滤条件
 
 
+        //多参数日志过滤
         LogcatConfig config = new LogcatConfigBuilder()
-                .filterTAG("BindView")
-                .showFormat(LogcatConfig.FORMAT_BRIEF)
-                .filterLevel(LogcatConfig.LEVEL_W)
-                .filter("3")
+                .filterTAG("BindView")//设置TAG
+                .showFormat(LogcatConfig.FORMAT_BRIEF)//输出格式
+                .filterLevel(LogcatConfig.LEVEL_W)//设置输出的日志等级
+                .filter("3")//关键字过滤
                 .build();
 
         logcat.print(config);

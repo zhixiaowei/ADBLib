@@ -44,4 +44,57 @@ public class AndroidMemory extends IAndroid{
         return false;
 
     }
+
+    /**
+     * 获取内存信息
+     * @return
+     *
+     * MemTotal:        7806540 kB //设备总内存
+     * MemFree:          613952 kB //空闲内存
+     * MemAvailable:    2290648 kB
+     * Buffers:            1904 kB
+     * Cached:          1927524 kB
+     * SwapCached:         9432 kB
+     * Active:          3154940 kB
+     * Inactive:        1491692 kB
+     * Active(anon):    2269868 kB
+     * Inactive(anon):   629908 kB
+     * Active(file):     885072 kB
+     * Inactive(file):   861784 kB
+     * Unevictable:      156752 kB
+     * Mlocked:          156752 kB
+     * SwapTotal:       2097148 kB
+     * SwapFree:        1332944 kB
+     * Dirty:               736 kB
+     * Writeback:             0 kB
+     * AnonPages:       2867976 kB
+     * Mapped:          1076824 kB
+     * Shmem:             27512 kB
+     * Slab:             564204 kB
+     * SReclaimable:     173456 kB
+     * SUnreclaim:       390748 kB
+     * KernelStack:       88832 kB
+     * PageTables:       142600 kB
+     * NFS_Unstable:          0 kB
+     * Bounce:                0 kB
+     * WritebackTmp:          0 kB
+     * CommitLimit:     6000416 kB
+     * Committed_AS:   145256200 kB
+     * VmallocTotal:   263061440 kB
+     * VmallocUsed:      119732 kB
+     * VmallocChunk:          0 kB
+     * Percpu:            19968 kB
+     * CmaTotal:         335872 kB
+     * CmaFree:               0 kB
+     *
+     */
+    public String memoryInfo(){
+        try {
+            return context.exec(cmd.memoryInfo());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
 }

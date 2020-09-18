@@ -40,5 +40,35 @@ public class AndroidHardwareCmd{
         return "adb shell dumpsys window displays";
     }
 
+    /**
+     * Android 5.0以下
+     * @return
+     */
+    public String devIMEI() {
+        return "adb shell dumpsys iphonesubinfo";
+    }
 
+    public String systemVersion() {
+        return "adb shell getprop ro.build.version.release";
+    }
+
+    public String SDKVersion() {
+        return "adb shell getprop ro.build.version.sdk";
+    }
+
+    /**
+     * 型号
+     * @return
+     */
+    public String devModel() {
+        return "adb shell getprop ro.product.model";
+    }
+
+    /**
+     * 品牌
+     * @return
+     */
+    public String devBrand() {
+        return "adb shell getprop ro.product.brand";
+    }
 }

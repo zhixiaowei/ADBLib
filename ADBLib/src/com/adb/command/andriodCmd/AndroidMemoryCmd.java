@@ -12,4 +12,11 @@ public class AndroidMemoryCmd {
         return "adb shell am send-trim-memory "+pid+" "+trimLevel;
     }
 
+    /**
+     * 获取内存信息
+     * @return
+     */
+    public String memoryInfo() {
+        return "adb shell cat /proc/meminfo";
+    }
 }

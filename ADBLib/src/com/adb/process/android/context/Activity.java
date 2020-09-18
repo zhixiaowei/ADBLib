@@ -3,7 +3,6 @@ package com.adb.process.android.context;
 import com.adb.command.andriodCmd.ActivityCmd;
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.IAndroid;
-import com.adb.process.android.context.IContext;
 
 public class Activity extends IAndroid {
 
@@ -66,6 +65,11 @@ public class Activity extends IAndroid {
         return false;
     }
 
+    /**
+     *
+     * @param packageName
+     * @return
+     */
     public boolean start(String packageName){
 
         try{

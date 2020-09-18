@@ -57,6 +57,65 @@ public class AndroidHardware extends IAndroid {
         return "";
     }
 
+    /**
+     * 设备型号，如：Nexus 5、Mi 10
+     * @return
+     */
+    public String devModel(){
+        try {
+            return context.exec(cmd.devModel());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
+    public String devIMEI(){
+        try {
+            return context.exec(cmd.devIMEI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * 系统版本
+     * @return
+     */
+    public String SystemVersion(){
+        try {
+            return context.exec(cmd.systemVersion());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * SDK版本
+     * @return
+     */
+    public String SDKVersion(){
+        try {
+            return context.exec(cmd.SDKVersion());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    public String devBrand(){
+        try {
+            return context.exec(cmd.devBrand());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
 
 }
