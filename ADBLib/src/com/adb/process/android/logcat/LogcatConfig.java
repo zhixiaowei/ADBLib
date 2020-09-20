@@ -38,7 +38,6 @@ public class LogcatConfig{
 //        if (grep == null||grep.isEmpty()){
             cmd = "adb shell logcat -v "+format+" -s "+tag+":"+level;
 //        }else{
-
 //            cmd = "adb shell logcat -v "+format+" -s "+tag+":"+level+"|grep \""+grep+"\"";
 //        }
     }

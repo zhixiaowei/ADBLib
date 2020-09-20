@@ -21,10 +21,6 @@ public class AndroidSystemCmd {
         return "adb devices";
     }
 
-
-
-
-
     /**
      * 获取进程列表
      * @return
@@ -35,6 +31,30 @@ public class AndroidSystemCmd {
         }else{
             return "adb shell ps|grep "+grep;
         }
+    }
+
+    /**
+     * Android 5.0以下
+     * @return
+     */
+    public String devIMEI() {
+        return "adb shell dumpsys iphonesubinfo";
+    }
+
+    /**
+     * 型号
+     * @return
+     */
+    public String devModel() {
+        return "adb shell getprop ro.product.model";
+    }
+
+    /**
+     * 品牌
+     * @return
+     */
+    public String devBrand() {
+        return "adb shell getprop ro.product.brand";
     }
 
     /**
@@ -79,18 +99,26 @@ public class AndroidSystemCmd {
     }
 
     /**
-     * 产品型号，如：Nexus 5
+     * 获取系统时间
      * @return
      */
-    public String productModel(){
-        return "adb shell getprop ro.product.model";
+    public String date() {
+        return "adb shell date";
     }
 
-    /**
-     * 获取电池信息
-     * @return
-     */
-    public String getBatteryInfo() {
-        return "adb shell dumpsys battery";
+    public String locationInfo() {
+        return "adb shell dumpsys location";
+    }
+
+    public String cpuInfo(){
+        return "adn shell dumpsys cpuinfo";
+    }
+
+    public String SDKVersion() {
+        return "adb shell getprop ro.build.version.sdk";
+    }
+
+    public String systemVersion() {
+        return "adb shell getprop ro.build.version.release";
     }
 }

@@ -41,34 +41,33 @@ public class AndroidHardwareCmd{
     }
 
     /**
-     * Android 5.0以下
+     * 获取电池信息
      * @return
      */
-    public String devIMEI() {
-        return "adb shell dumpsys iphonesubinfo";
+    public String getBatteryInfo() {
+        return "adb shell dumpsys battery";
     }
 
-    public String systemVersion() {
-        return "adb shell getprop ro.build.version.release";
-    }
 
-    public String SDKVersion() {
-        return "adb shell getprop ro.build.version.sdk";
+    /**
+     * 设置屏幕方向
+     * Android 10测试无效，暂未在其他设备上测试
+     * @param i
+     * @return
+     */
+    @Deprecated
+    public String setScreenRotation(int i) {
+        return "adb shell content insert --uri content://settings/system --bind name:s:user_rotation --bind value:i:"+i;
     }
 
     /**
-     * 型号
+     * 是否锁定方向
+     * Android 10测试有效（小米10）
+     *
+     * @param isLock
      * @return
      */
-    public String devModel() {
-        return "adb shell getprop ro.product.model";
-    }
-
-    /**
-     * 品牌
-     * @return
-     */
-    public String devBrand() {
-        return "adb shell getprop ro.product.brand";
+    public String setLockRotation(boolean isLock){
+        return "adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:"+(isLock?0:1);
     }
 }

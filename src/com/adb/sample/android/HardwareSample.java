@@ -10,18 +10,11 @@ public class HardwareSample {
     public static void main(String[] args) {
         AndroidHardware hardware = new AndroidHardware(new AndroidCtrl());
 
-        String model = hardware.devModel();
-        System.out.println("当前设备的型号为"+model);
+        hardware.screenDensity();//屏幕密度
+        hardware.screenSize();//屏幕分辨率
+        hardware.screenInfo();//屏幕详细信息
 
-        String brand = hardware.devBrand();
-        System.out.println("当前设备品牌为："+brand);
-
-        String sysV = hardware.SystemVersion();
-        System.out.println("系统版本为："+sysV);
-
-        String sdkV = hardware.SDKVersion();
-        System.out.println("SDK版本为："+sdkV);
-
+        hardware.getBatteryInfo();//电池信息（总量、余量等）
 
     }
 }

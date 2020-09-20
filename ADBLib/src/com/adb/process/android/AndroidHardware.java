@@ -58,21 +58,26 @@ public class AndroidHardware extends IAndroid {
     }
 
     /**
-     * 设备型号，如：Nexus 5、Mi 10
+     * 获取电池信息
+     *
+     * Current Battery Service state:
+     *   AC powered: false
+     *   USB powered: true
+     *   Wireless powered: false
+     *   status: 2
+     *   health: 2
+     *   present: true
+     *   level: 44 //剩余电量
+     *   scale: 100 //最大电量
+     *   voltage: 3872
+     *   temperature: 280
+     *   technology: Li-poly
+     *
      * @return
      */
-    public String devModel(){
+    public String  getBatteryInfo(){
         try {
-            return context.exec(cmd.devModel());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public String devIMEI(){
-        try {
-            return context.exec(cmd.devIMEI());
+            return context.exec(cmd.getBatteryInfo());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,41 +86,19 @@ public class AndroidHardware extends IAndroid {
     }
 
     /**
-     * 系统版本
+     * 由于在Android 10上测试无效，且暂未在其他设备上测试过
+     * 设置屏幕方向，
+     * @param i 参数范围为 0 - 3
      * @return
      */
-    public String SystemVersion(){
+    @Deprecated
+    public String setScreenRotation(int i) {
         try {
-            return context.exec(cmd.systemVersion());
+            return context.exec(cmd.setScreenRotation(i));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return "";
     }
-
-    /**
-     * SDK版本
-     * @return
-     */
-    public String SDKVersion(){
-        try {
-            return context.exec(cmd.SDKVersion());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return "";
-    }
-
-    public String devBrand(){
-        try {
-            return context.exec(cmd.devBrand());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return "";
-    }
-
 }

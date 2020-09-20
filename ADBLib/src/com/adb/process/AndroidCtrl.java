@@ -1,8 +1,10 @@
 package com.adb.process;
 
 import com.adb.command.andriodCmd.AndroidSystemCmd;
-import com.adb.process.android.AndroidAPP;
-import com.adb.process.android.AndroidFile;
+import com.adb.process.android.*;
+import com.adb.process.android.context.Activity;
+import com.adb.process.android.context.Broadcast;
+import com.adb.process.android.context.Service;
 import com.adb.process.android.logcat.AndroidLogcat;
 import com.adb.process.android.context.IContext;
 
@@ -54,42 +56,6 @@ public class AndroidCtrl extends ACtrl{
     }
 
     /**
-     * Android 10 返回键测试可行
-     *
-     * 虚拟按键控制
-     * @param androidKeyEvent 有效参数见：lib.process.android.AndroidKeyEvent
-     * @return
-     */
-    public boolean inputKeyEvent(int androidKeyEvent){
-        try{
-            exec(cmd.inputKeyEvent(androidKeyEvent));
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return false;
-    }
-
-
-    /**
-     *
-     *  Android 10测试可行
-     *  获取当前正在运行进程
-     * @param grep 为空时返回全部
-     * @return
-     */
-    public String listProcess(String grep){
-        try{
-            return exec(cmd.listProcess(grep));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return "";
-    }
-
-    /**
      * Android 10测试可行
      *
      * 获取当前正在连接的设备
@@ -105,25 +71,6 @@ public class AndroidCtrl extends ACtrl{
         return "";
     }
 
-
-
-    /**
-     *
-     * 发送广播
-     * @param
-     * @return
-     */
-    public boolean sendBroadcast(IContext.Intent intent) {
-        try{
-            String msg = exec(intent.cmd);
-            System.out.println(msg);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-
     public AndroidLogcat managerOfLogcat(){
         return new AndroidLogcat(this);
     }
@@ -134,6 +81,34 @@ public class AndroidCtrl extends ACtrl{
 
     public AndroidFile managerOfFile(){
         return new AndroidFile(this);
+    }
+
+    public Activity managerOfActivity(){
+        return new Activity(this);
+    }
+
+    public Service managerOfService(){
+        return new Service(this);
+    }
+
+    public Broadcast managerOfBroadcast(){
+        return new Broadcast(this);
+    }
+
+    public AndroidHardware managerOfHardware(){
+        return new AndroidHardware(this);
+    }
+
+    public AndroidSystem managerOfSystem(){
+        return new AndroidSystem(this);
+    }
+
+    public AndroidMemory managerOfMemory(){
+        return new AndroidMemory(this);
+    }
+
+    public AndroidNetwork managerOfNetwork(){
+        return new AndroidNetwork(this);
     }
 
 

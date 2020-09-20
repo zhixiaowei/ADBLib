@@ -7,7 +7,7 @@ import com.adb.process.AndroidCtrl;
  *
  * 如电源键：adb shell input keyevent 26
  */
-public class AndroidKeyEvent extends IAndroid {
+public class KeyCode{
     public final static int KEYCODE_POWER = 26;//电源键
     public final static int KEYCODE_HOME = 3;//HOME键
     public final static int KEYCODE_BACK = 4;//返回键 Android 10测试可行
@@ -27,13 +27,4 @@ public class AndroidKeyEvent extends IAndroid {
 
     public final static int KEYCODE_LIGHT_OFF = 223;//熄灭屏幕
     public final static int KEYCODE_LIGHT_UP = 224;//点亮屏幕
-
-
-    public AndroidKeyEvent(AndroidCtrl context) {
-        super(context);
-    }
-
-    public void input(int keyCode){
-       context.inputKeyEvent(keyCode);
-    }
 }

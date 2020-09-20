@@ -6,7 +6,7 @@ import com.adb.process.AndroidCtrl;
 import java.io.IOException;
 
 /**
- * C:\Users\风乍起>adb shell getprop
+ * C:\Users\admin>adb shell getprop
  * [DEVICE_PROVISIONED]: [1]
  * [aaudio.hw_burst_min_usec]: [2000]
  * [aaudio.mmap_exclusive_policy]: [2]
@@ -782,12 +782,12 @@ public class AndroidSystem extends IAndroid{
     AndroidSystemCmd cmd = new AndroidSystemCmd();
 
     /**
-     * 设备型号,如：Nexus 5
+     * 系统版本
      * @return
      */
-    public String getProductModel(){
+    public String SystemVersion(){
         try {
-            return context.exec(cmd.productModel());
+            return context.exec(cmd.systemVersion());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -796,30 +796,109 @@ public class AndroidSystem extends IAndroid{
     }
 
     /**
-     * 获取电池信息
-     *
-     * Current Battery Service state:
-     *   AC powered: false
-     *   USB powered: true
-     *   Wireless powered: false
-     *   status: 2
-     *   health: 2
-     *   present: true
-     *   level: 44 //剩余电量
-     *   scale: 100 //最大电量
-     *   voltage: 3872
-     *   temperature: 280
-     *   technology: Li-poly
-     *
+     * SDK版本
      * @return
      */
-    public String  getBatteryInfo(){
+    public String SDKVersion(){
         try {
-            return context.exec(cmd.getBatteryInfo());
+            return context.exec(cmd.SDKVersion());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return "";
     }
+
+
+    public String date(){
+        try {
+            return context.exec(cmd.date());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    public String location(){
+        try {
+            return context.exec(cmd.locationInfo());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * 设备型号
+     * @return
+     */
+    public String devBrand(){
+        try {
+            return context.exec(cmd.devBrand());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * 设备型号，如：Nexus 5、Mi 10
+     * @return
+     */
+    public String devModel(){
+        try {
+            return context.exec(cmd.devModel());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public String devIMEI(){
+        try {
+            return context.exec(cmd.devIMEI());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     *
+     *  Android 10测试可行
+     *  获取当前正在运行进程
+     * @param grep 为空时返回全部
+     * @return
+     */
+    public String listProcess(String grep){
+        try{
+            return context.exec(cmd.listProcess(grep));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * Android 10 返回键测试可行
+     *
+     * 虚拟按键控制
+     * @param androidKeyEvent 有效参数见：lib.process.android.AndroidKeyEvent
+     * @return
+     */
+    public boolean inputKeyEvent(int androidKeyEvent){
+        try{
+            context.exec(cmd.inputKeyEvent(androidKeyEvent));
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }

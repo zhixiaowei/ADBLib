@@ -134,7 +134,7 @@ public class AndroidAPP extends IAndroid {
      */
     public String getPid(String packageName) {
         try {
-            String[] msg = context.exec(context.listProcess(packageName)).split(" ");
+            String[] msg = context.exec(context.managerOfSystem().listProcess(packageName)).split(" ");
 
             for (int i = 1;i<msg.length;i++){
                 String temp = msg[i];

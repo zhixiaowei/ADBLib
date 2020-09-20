@@ -88,10 +88,24 @@ public class AndroidMemory extends IAndroid{
      * CmaFree:               0 kB
      *
      */
-    public String memoryInfo(){
+    public String memoryOfSystem(){
         try {
-            return context.exec(cmd.memoryInfo());
+            return context.exec(cmd.memoryOfSystem());
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * 获取内存占用大的前 num 个进程
+     * @return
+     */
+    public String memoryTop(int num){
+        try{
+            return context.exec(cmd.memoryTop(num));
+        }catch (Exception e){
             e.printStackTrace();
         }
 
