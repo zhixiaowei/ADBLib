@@ -1,6 +1,6 @@
 package com.adb.process.android.context;
 
-import com.adb.command.andriodCmd.ActivityCmd;
+import com.adb.command.ActivityCmd;
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.IAndroid;
 

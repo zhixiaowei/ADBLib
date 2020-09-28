@@ -1,4 +1,4 @@
-package com.adb.sample.android.contextSample;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.context.Activity;
@@ -14,7 +14,7 @@ public class ActivitySample {
         activity.start("com.huangxiaowei.annotationtest");
 
         //启动指定Activity
-        activity.start("com.hxw.fuck","com.hxw.fuck.MainActivity");
+        activity.start("com.hxw.test","com.hxw.test.MainActivity");
 
         //带参数启动Activity
         IContext.Intent intent = new ActivityIntentBuilder("android.intent.action.TestActivity",

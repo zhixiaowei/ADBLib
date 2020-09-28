@@ -1,9 +1,9 @@
-package com.adb.sample.android;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.AndroidNetwork;
 
-public class AndroidNetworkSample {
+public class NetworkSample {
     public static void main(String[] args) {
         AndroidNetwork network = new AndroidNetwork(new AndroidCtrl());
 

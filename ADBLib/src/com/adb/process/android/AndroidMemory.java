@@ -1,6 +1,6 @@
 package com.adb.process.android;
 
-import com.adb.command.andriodCmd.AndroidMemoryCmd;
+import com.adb.command.AndroidMemoryCmd;
 import com.adb.process.AndroidCtrl;
 
 import java.io.IOException;

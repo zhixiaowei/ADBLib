@@ -1,7 +1,4 @@
-package com.adb.command.andriodCmd;
-
-import com.adb.process.AndroidCtrl;
-import com.adb.process.android.IAndroid;
+package com.adb.command;
 
 public class AndroidHardwareCmd{
 

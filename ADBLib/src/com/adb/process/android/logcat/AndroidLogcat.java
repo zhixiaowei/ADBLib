@@ -1,6 +1,6 @@
 package com.adb.process.android.logcat;
 
-import com.adb.command.andriodCmd.AndroidLogcatCmd;
+import com.adb.command.AndroidLogcatCmd;
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.IAndroid;
 

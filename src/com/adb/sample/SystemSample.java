@@ -1,10 +1,10 @@
-package com.adb.sample.android;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.AndroidSystem;
 import com.adb.process.android.KeyCode;
 
-public class AndroidSystemSample {
+public class SystemSample {
 
     public static void main(String[] args) {
         AndroidCtrl context = new AndroidCtrl();

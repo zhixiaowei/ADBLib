@@ -1,7 +1,7 @@
 package com.adb.process.android;
 
 import com.adb.process.AndroidCtrl;
-import com.adb.command.andriodCmd.AndroidFileCmd;
+import com.adb.command.AndroidFileCmd;
 
 import java.io.IOException;
 

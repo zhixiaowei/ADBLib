@@ -7,14 +7,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b16a5440-a526-49e7-a99f-d47ba17b3038" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidHardwareCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidHardwareCmd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidMemoryCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidMemoryCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/ActivityCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/ActivityCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidAppCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidAppCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidFileCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidFileCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidHardwareCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidHardwareCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidLogcatCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidLogcatCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidMemoryCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidMemoryCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidNetworkCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidNetworkCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/AndroidSystemCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/AndroidSystemCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/andriodCmd/ServiceCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/command/ServiceCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/command/window/WindowCmd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/AndroidCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/AndroidCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/WindowCtrl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidAPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidAPP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidHardware.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidHardware.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/AndroidSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/context/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/context/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/context/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/context/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/logcat/AndroidLogcat.java" beforeDir="false" afterPath="$PROJECT_DIR$/ADBLib/src/com/adb/process/android/logcat/AndroidLogcat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidAPPSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/APPSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidCommonSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/CommonSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidFileSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/FileSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidLogcatSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/LogcatSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidNetworkSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/NetworkSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/AndroidSystemSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/SystemSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/HardwareSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/HardwareSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/contextSample/ActivitySample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/ActivitySample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/contextSample/BroadcastSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/BroadcastSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/android/contextSample/ServiceSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/adb/sample/ServiceSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/adb/sample/window/WindowSample.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +62,6 @@
   <component name="ProjectId" id="1hSqOl4P5UOiICeTt4VggHBANbE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -46,6 +72,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.31369662" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -56,13 +83,13 @@
       <recent name="E:\tool\ADBLibSample\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HardwareSample">
-    <configuration name="AndroidAPPSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.adb.sample.android.AndroidAPPSample" />
+  <component name="RunManager" selected="Application.AndroidNetworkSample">
+    <configuration name="ActivitySample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.ActivitySample" />
       <module name="ADBLibSample" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.adb.sample.android.*" />
+          <option name="PATTERN" value="com.adb.sample.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -70,12 +97,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AndroidLogcatSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.adb.sample.android.AndroidLogcatSample" />
+    <configuration name="AndroidAPPSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.AndroidAPPSample" />
       <module name="ADBLibSample" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.adb.sample.android.*" />
+          <option name="PATTERN" value="com.adb.sample.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,11 +111,24 @@
       </method>
     </configuration>
     <configuration name="HardwareSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.adb.sample.android.HardwareSample" />
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.HardwareSample" />
       <module name="ADBLibSample" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.adb.sample.android.*" />
+          <option name="PATTERN" value="com.adb.sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adb.sample.NetworkSample" />
+      <module name="ADBLibSample" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adb.sample.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,10 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HardwareSample" />
+        <item itemvalue="Application.AndroidNetworkSample" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.ActivitySample" />
+        <item itemvalue="Application.HardwareSample" />
         <item itemvalue="Application.AndroidAPPSample" />
-        <item itemvalue="Application.AndroidLogcatSample" />
       </list>
     </recent_temporary>
   </component>
@@ -144,6 +185,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="217" key="#HTTP_Proxy" timestamp="1600619422083">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="552" y="217" key="#HTTP_Proxy/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600619422083" />
     <state x="552" y="218" key="#Project_Structure" timestamp="1600015095609">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -156,30 +201,42 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="765" y="269" key="#com.intellij.ide.util.MemberChooser/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600360854391" />
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601305512848">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="690" y="306" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1601305512848" />
     <state x="92" y="132" width="1736" height="856" key="DiffContextDialog" timestamp="1600359409919">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="92" y="132" width="1736" height="856" key="DiffContextDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600359409919" />
-    <state width="1877" height="301" key="GridCell.Tab.0.bottom" timestamp="1600448339082">
+    <state x="740" y="300" key="FileChooserDialogImpl" timestamp="1600619546698">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="301" key="GridCell.Tab.0.bottom/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600448339082" />
-    <state width="1877" height="301" key="GridCell.Tab.0.center" timestamp="1600448339082">
+    <state x="740" y="300" key="FileChooserDialogImpl/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600619546698" />
+    <state width="1877" height="183" key="GridCell.Tab.0.bottom" timestamp="1600618874355">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="301" key="GridCell.Tab.0.center/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600448339082" />
-    <state width="1877" height="301" key="GridCell.Tab.0.left" timestamp="1600448339082">
+    <state width="1877" height="183" key="GridCell.Tab.0.bottom/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600618874355" />
+    <state width="1877" height="183" key="GridCell.Tab.0.center" timestamp="1600618874355">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="301" key="GridCell.Tab.0.left/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600448339082" />
-    <state width="1877" height="301" key="GridCell.Tab.0.right" timestamp="1600448339082">
+    <state width="1877" height="183" key="GridCell.Tab.0.center/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600618874355" />
+    <state width="1877" height="183" key="GridCell.Tab.0.left" timestamp="1600618874355">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="301" key="GridCell.Tab.0.right/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600448339082" />
-    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1600441863021">
+    <state width="1877" height="183" key="GridCell.Tab.0.left/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600618874355" />
+    <state width="1877" height="183" key="GridCell.Tab.0.right" timestamp="1600618874355">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600441863021" />
+    <state width="1877" height="183" key="GridCell.Tab.0.right/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600618874355" />
+    <state x="461" y="201" key="SettingsEditor" timestamp="1600619824081">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="461" y="201" key="SettingsEditor/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1600619824081" />
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1601305043759">
+      <screen x="0" y="40" width="1920" height="1040" />
+    </state>
+    <state x="640" y="383" key="com.intellij.ide.util.TipDialog/-1920.40.1920.1040/0.40.1920.1040@0.40.1920.1040" timestamp="1601305043759" />
     <state x="434" y="140" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600354662223">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>

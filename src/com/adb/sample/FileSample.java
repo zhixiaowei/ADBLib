@@ -1,4 +1,4 @@
-package com.adb.sample.android;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.AndroidFile;
@@ -6,7 +6,7 @@ import com.adb.process.android.AndroidFile;
 /**
  * 文件操作
  */
-public class AndroidFileSample {
+public class FileSample {
 
     public static void main(String[] args) {
         AndroidFile fileCtrl = new AndroidCtrl().managerOfFile();

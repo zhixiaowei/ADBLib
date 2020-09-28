@@ -1,11 +1,11 @@
-package com.adb.sample.android;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.AndroidAPP;
 
 import java.io.IOException;
 
-public class AndroidAPPSample {
+public class APPSample {
     public static void main(String[] args) throws IOException {
 
         AndroidAPP appCtrl = new AndroidAPP(new AndroidCtrl());

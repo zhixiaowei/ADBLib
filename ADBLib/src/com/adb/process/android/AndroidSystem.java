@@ -1,6 +1,6 @@
 package com.adb.process.android;
 
-import com.adb.command.andriodCmd.AndroidSystemCmd;
+import com.adb.command.AndroidSystemCmd;
 import com.adb.process.AndroidCtrl;
 
 import java.io.IOException;

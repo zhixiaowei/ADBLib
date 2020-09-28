@@ -1,10 +1,10 @@
-package com.adb.sample.android;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.AndroidSystem;
 import com.adb.process.android.context.Activity;
 
-public class AndroidCommonSample {
+public class CommonSample {
     public static void main(String[] args) {
 
         AndroidCtrl androidCtrl = new AndroidCtrl();
@@ -23,11 +23,11 @@ public class AndroidCommonSample {
 
         AndroidSystem system = androidCtrl.managerOfSystem();
         system.listProcess(null);//获取系统进程等
-        //详情可看 com.adb.sample.android.AndroidSystemSample
+        //详情可看 com.adb.sample.AndroidSystemSample
 
         Activity activity = androidCtrl.managerOfActivity();
         activity.start("com.hxw.test");
-        //详情可看 com.adb.sample.android.contextSample.ActivitySample
+        //详情可看 com.adb.sample.ActivitySample
 
         //其他API可阅其他Sample
     }

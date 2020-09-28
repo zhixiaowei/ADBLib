@@ -1,4 +1,4 @@
-package com.adb.command.andriodCmd;
+package com.adb.command;
 
 public class AndroidSystemCmd {
 

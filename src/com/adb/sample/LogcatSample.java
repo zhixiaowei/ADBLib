@@ -1,11 +1,11 @@
-package com.adb.sample.android;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.logcat.AndroidLogcat;
 import com.adb.process.android.logcat.LogcatConfig;
 import com.adb.process.android.logcat.LogcatConfigBuilder;
 
-public class AndroidLogcatSample {
+public class LogcatSample {
     public static void main(String[] args) {
 
         AndroidCtrl android = new AndroidCtrl();

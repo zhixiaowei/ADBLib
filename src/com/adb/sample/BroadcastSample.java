@@ -1,4 +1,4 @@
-package com.adb.sample.android.contextSample;
+package com.adb.sample;
 
 import com.adb.process.AndroidCtrl;
 import com.adb.process.android.context.Broadcast;

@@ -1,0 +1,9 @@
+/out/production/ADBLib/com/adb/command/andriodCmd/*.class
+/out/production/ADBLib/com/adb/command/window/*.class
+/out/production/ADBLib/com/adb/process/*.class
+/out/production/ADBLib/com/adb/process/android/*.class
+/out/production/ADBLib/com/adb/process/android/context/*.class
+/out/production/ADBLibSample/com/adb/sample/*.class
+/out/production/ADBLibSample/com/adb/sample/android/*.class
+/out/production/ADBLibSample/com/adb/sample/window/*.class
+production
