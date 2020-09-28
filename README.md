@@ -162,5 +162,5 @@ String pid = appCtrl.getPid("com.taobao.idlefish");
 
 ```
 ### 其他可参考Sample
-
+https://github.com/zhixiaowei/ADBLib/tree/master/src/com/adb/sample
 
