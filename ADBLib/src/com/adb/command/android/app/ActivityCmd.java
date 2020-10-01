@@ -1,6 +1,7 @@
-package com.adb.command;
+package com.adb.command.android.app;
 
-public class ActivityCmd {
+public class ActivityCmd{
+
     /**
      *启动应用的Activity
      * @param packageName 包名

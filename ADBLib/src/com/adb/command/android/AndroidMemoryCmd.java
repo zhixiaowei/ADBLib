@@ -1,6 +1,8 @@
-package com.adb.command;
+package com.adb.command.android;
 
-public class AndroidMemoryCmd {
+import com.adb.process.Device;
+
+public class AndroidMemoryCmd{
 
     /**
      * 向进程，发出 level=RUNNING_LOW 的收紧内存命令。

@@ -1,23 +1,22 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
 import com.adb.process.android.context.Broadcast;
 import com.adb.process.android.context.BroadcastIntentBuilder;
 import com.adb.process.android.context.IContext;
 
 public class BroadcastSample {
 
-
     public static void main(String[] args) {
 
-        Broadcast broadcast = new Broadcast(new AndroidCtrl());
+        Broadcast broadcast = new Broadcast(new ADBCtrl().firstDevice());
 
         IContext.Intent intent =
-                new BroadcastIntentBuilder("com.hxw.fuck")//ACTION
+                new BroadcastIntentBuilder("com.hxw.test")//ACTION
                         .addExtra("数组",new int[]{1,2,3,4})
-                        .addExtra("字符串","i am string")
-                        .addExtra("在否",false)
-                        .addExtra("长数字",Long.valueOf("12433333399"))
+                        .addExtra("KeyOfString","i am string")
+                        .addExtra("KeyOfBoolean",false)
+                        .addExtra("KeyOfLong",Long.valueOf("12433333399"))
                         .build();
         broadcast.send(intent);//发送广播
 

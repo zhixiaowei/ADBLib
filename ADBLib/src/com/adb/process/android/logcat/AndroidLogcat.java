@@ -1,7 +1,7 @@
 package com.adb.process.android.logcat;
 
-import com.adb.command.AndroidLogcatCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.AndroidLogcatCmd;
+import com.adb.process.Device;
 import com.adb.process.android.IAndroid;
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class AndroidLogcat extends IAndroid {
 
     private AndroidLogcatCmd cmd = new AndroidLogcatCmd();
 
-    public AndroidLogcat(AndroidCtrl context) {
+    public AndroidLogcat(Device context) {
         super(context);
     }
 

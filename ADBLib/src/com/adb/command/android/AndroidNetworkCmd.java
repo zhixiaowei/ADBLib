@@ -1,6 +1,9 @@
-package com.adb.command;
+package com.adb.command.android;
 
-public class AndroidNetworkCmd {
+import com.adb.process.Device;
+
+public class AndroidNetworkCmd{
+
     /**
      *  Android 10测试可行
      * 如：adb shell ping -c 4 www.baidu.com

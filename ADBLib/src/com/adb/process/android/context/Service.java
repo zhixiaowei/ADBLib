@@ -1,7 +1,7 @@
 package com.adb.process.android.context;
 
-import com.adb.command.ServiceCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.app.ServiceCmd;
+import com.adb.process.Device;
 import com.adb.process.android.IAndroid;
 
 import java.io.IOException;
@@ -10,8 +10,8 @@ public class Service extends IAndroid {
 
     private ServiceCmd cmd = new ServiceCmd();
 
-    public Service(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+    public Service(Device context) {
+        super(context);
     }
 
     /**

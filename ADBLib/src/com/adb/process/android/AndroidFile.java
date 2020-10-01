@@ -1,7 +1,7 @@
 package com.adb.process.android;
 
-import com.adb.process.AndroidCtrl;
-import com.adb.command.AndroidFileCmd;
+import com.adb.command.android.AndroidFileCmd;
+import com.adb.process.Device;
 
 import java.io.IOException;
 
@@ -9,8 +9,22 @@ public class AndroidFile extends IAndroid {
 
     AndroidFileCmd cmd = new AndroidFileCmd();
 
-    public AndroidFile(AndroidCtrl context) {
+    public AndroidFile(Device context) {
         super(context);
+    }
+
+    /**
+     * 获取sdcard目录
+     * @return
+     * 在真机上测试返回结果为：/sdcard
+     */
+    public String getExternalStorageDirectoryPath(){
+        try {
+            return context.exec(cmd.getExternalStorageDirectoryPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     /**
@@ -19,7 +33,7 @@ public class AndroidFile extends IAndroid {
      * 拷贝文件从Android到Window
      * @param androidPath
      * @param windowPath
-     * @return
+     * @return 正常情况，执行成功内容为：/sdcard/pic.png: 1 file pulled. 10.0 MB/s (219974 bytes in 0.021s)
      */
     public String copyFileAndroid2Window(String androidPath,String windowPath){
         try {
@@ -100,7 +114,8 @@ public class AndroidFile extends IAndroid {
      * 删除文件夹下的指定后缀的文件
      * @param dir
      * @param suffix
-     * @return
+     * @return 正常的情况下，执行成功后无回复内容
+     *
      */
     public String delDirFileBySuffix(String dir,String suffix){
         try {
@@ -110,5 +125,6 @@ public class AndroidFile extends IAndroid {
         }
         return "";
     }
+
 
 }

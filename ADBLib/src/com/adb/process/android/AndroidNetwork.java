@@ -1,14 +1,15 @@
 package com.adb.process.android;
 
-import com.adb.command.AndroidNetworkCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.AndroidNetworkCmd;
+import com.adb.process.Device;
+
 import java.io.IOException;
 
 public class AndroidNetwork extends IAndroid {
 
     AndroidNetworkCmd cmd = new AndroidNetworkCmd();
 
-    public AndroidNetwork(AndroidCtrl androidCtrl) {
+    public AndroidNetwork(Device androidCtrl) {
         super(androidCtrl);
     }
 

@@ -1,4 +1,6 @@
-package com.adb.command;
+package com.adb.command.android;
+
+import com.adb.process.Device;
 
 public class AndroidHardwareCmd{
 
@@ -67,4 +69,9 @@ public class AndroidHardwareCmd{
     public String setLockRotation(boolean isLock){
         return "adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:"+(isLock?0:1);
     }
+
+    public String cpuInfo(){
+        return "adn shell dumpsys cpuinfo";
+    }
+
 }

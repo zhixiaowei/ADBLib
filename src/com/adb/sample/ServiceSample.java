@@ -1,6 +1,6 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
 import com.adb.process.android.context.IContext;
 import com.adb.process.android.context.Service;
 import com.adb.process.android.context.ServiceInentBuilder;
@@ -9,8 +9,7 @@ public class ServiceSample {
 
     public static void main(String[] args) {
 
-        AndroidCtrl context = new AndroidCtrl();
-        Service service = new Service(context);
+        Service service = new Service(new ADBCtrl().listDevices()[0]);
 
         service.getAllRunningService(null);//获取正在运行的服务，参数为指定应用的包名
 

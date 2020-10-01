@@ -1,7 +1,7 @@
 package com.adb.process.android;
 
-import com.adb.command.AndroidMemoryCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.AndroidMemoryCmd;
+import com.adb.process.Device;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class AndroidMemory extends IAndroid{
 
     private AndroidMemoryCmd cmd = new AndroidMemoryCmd();
 
-    public AndroidMemory(AndroidCtrl context) {
+    public AndroidMemory(Device context) {
         super(context);
     }
 

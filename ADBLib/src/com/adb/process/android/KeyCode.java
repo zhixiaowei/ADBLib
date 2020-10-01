@@ -1,7 +1,5 @@
 package com.adb.process.android;
 
-import com.adb.process.AndroidCtrl;
-
 /**
  * 物理/虚拟 按键控制
  *

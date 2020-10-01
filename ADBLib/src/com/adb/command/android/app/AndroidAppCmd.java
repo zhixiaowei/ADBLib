@@ -1,7 +1,9 @@
-package com.adb.command;
+package com.adb.command.android.app;
 
-public class AndroidAppCmd {
+import com.adb.command.android.IAndroidCmd;
+import com.adb.process.Device;
 
+public class AndroidAppCmd{
 
     /**
      * 安装Window上的APK文件

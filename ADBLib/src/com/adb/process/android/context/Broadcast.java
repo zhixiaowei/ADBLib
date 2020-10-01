@@ -1,6 +1,7 @@
 package com.adb.process.android.context;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.app.BroadcastCmd;
+import com.adb.process.Device;
 import com.adb.process.android.IAndroid;
 
 import java.io.IOException;
@@ -30,9 +31,11 @@ public class Broadcast extends IAndroid {
     public final static String MEDIA_MOUNTED = "android.intent.action.MEDIA_MOUNTED";//挂载外部介质
     public final static String POWER_SAVE_MODE_CHANGED = "android.os.action.POWER_SAVE_MODE_CHANGED";//省电模式开启
 
-    public Broadcast(AndroidCtrl androidCtrl) {
-        super(androidCtrl);
+        public Broadcast(Device context) {
+        super(context);
     }
+
+    private BroadcastCmd cmd = new BroadcastCmd();
 
     /**
      *
@@ -60,7 +63,7 @@ public class Broadcast extends IAndroid {
      */
     public boolean send(String action){
         try {
-            context.exec("adb shell am broadcast -a "+action);
+            context.exec(cmd.send(action));
             return true;
         } catch (IOException e) {
             e.printStackTrace();

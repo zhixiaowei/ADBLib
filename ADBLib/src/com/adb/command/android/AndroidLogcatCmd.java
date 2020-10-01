@@ -1,6 +1,8 @@
-package com.adb.command;
+package com.adb.command.android;
 
-public class AndroidLogcatCmd {
+import com.adb.process.Device;
+
+public class AndroidLogcatCmd{
 
     /**
      * 打印日志

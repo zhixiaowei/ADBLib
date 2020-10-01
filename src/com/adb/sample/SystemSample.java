@@ -1,13 +1,14 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
+import com.adb.process.Device;
 import com.adb.process.android.AndroidSystem;
 import com.adb.process.android.KeyCode;
 
 public class SystemSample {
 
     public static void main(String[] args) {
-        AndroidCtrl context = new AndroidCtrl();
+        Device context = new ADBCtrl().firstDevice();
         AndroidSystem system = new AndroidSystem(context);
 
         system.location();//位置信息
@@ -26,7 +27,7 @@ public class SystemSample {
 
         system.listProcess(null);//获取当前正在执行的进程
 
-        system.inputKeyEvent(KeyCode.KEYCODE_BACK);//执行返回键
+
 
     }
 }

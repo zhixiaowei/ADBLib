@@ -1,4 +1,4 @@
-package com.adb.command;
+package com.adb.command.android.app;
 
 public class ServiceCmd {
 

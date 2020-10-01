@@ -1,6 +1,6 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
 import com.adb.process.android.AndroidFile;
 
 /**
@@ -9,7 +9,7 @@ import com.adb.process.android.AndroidFile;
 public class FileSample {
 
     public static void main(String[] args) {
-        AndroidFile fileCtrl = new AndroidCtrl().managerOfFile();
+        AndroidFile fileCtrl = new ADBCtrl().firstDevice().managerOfFile();
 
         //从Android拷贝文件到电脑
         fileCtrl.copyFileAndroid2Window("/mnt/sdcard/image.png","E:\\Download\\image.png");

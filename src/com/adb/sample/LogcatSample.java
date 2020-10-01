@@ -1,6 +1,7 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
+import com.adb.process.Device;
 import com.adb.process.android.logcat.AndroidLogcat;
 import com.adb.process.android.logcat.LogcatConfig;
 import com.adb.process.android.logcat.LogcatConfigBuilder;
@@ -8,7 +9,7 @@ import com.adb.process.android.logcat.LogcatConfigBuilder;
 public class LogcatSample {
     public static void main(String[] args) {
 
-        AndroidCtrl android = new AndroidCtrl();
+        Device android = new ADBCtrl().firstDevice();
         AndroidLogcat logcat = android.managerOfLogcat();
 
         String pid = android.managerOfApp().getPid("com.huangxiaowei.annotationtest");

@@ -1,7 +1,7 @@
 package com.adb.process.android;
 
-import com.adb.command.AndroidHardwareCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.AndroidHardwareCmd;
+import com.adb.process.Device;
 
 import java.io.IOException;
 
@@ -9,11 +9,11 @@ public class AndroidHardware extends IAndroid {
 
     AndroidHardwareCmd cmd = new AndroidHardwareCmd();
 
-    public AndroidHardware(AndroidCtrl context) {
+    public AndroidHardware(Device context) {
         super(context);
     }
 
-     /* 获取屏幕分辨率
+    /* 获取屏幕分辨率
      * @return
       */
     public String screenSize(){
@@ -58,6 +58,38 @@ public class AndroidHardware extends IAndroid {
     }
 
     /**
+     * 由于在Android 10上测试无效，且暂未在其他设备上测试过
+     * 设置屏幕方向，
+     * @param i 参数范围为 0 - 3
+     * @return
+     */
+    @Deprecated
+    public String setScreenRotation(int i) {
+        try {
+            return context.exec(cmd.setScreenRotation(i));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
+     * 设置是否锁定屏幕方向
+     * @param isLock
+     * @return
+     */
+    public String isLockRotation(boolean isLock){
+        try {
+            return context.exec(cmd.setLockRotation(true));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
+    }
+
+    /**
      * 获取电池信息
      *
      * Current Battery Service state:
@@ -85,20 +117,17 @@ public class AndroidHardware extends IAndroid {
         return "";
     }
 
-    /**
-     * 由于在Android 10上测试无效，且暂未在其他设备上测试过
-     * 设置屏幕方向，
-     * @param i 参数范围为 0 - 3
-     * @return
-     */
-    @Deprecated
-    public String setScreenRotation(int i) {
+
+
+    public String getCPUInfo(){
         try {
-            return context.exec(cmd.setScreenRotation(i));
+            return context.exec(cmd.cpuInfo());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return "";
     }
+
+
 }

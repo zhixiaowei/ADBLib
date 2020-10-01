@@ -1,11 +1,11 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
 import com.adb.process.android.AndroidNetwork;
 
 public class NetworkSample {
     public static void main(String[] args) {
-        AndroidNetwork network = new AndroidNetwork(new AndroidCtrl());
+        AndroidNetwork network = new AndroidNetwork(new ADBCtrl().firstDevice());
 
         network.ping("www.baidu.com",3,true);
 

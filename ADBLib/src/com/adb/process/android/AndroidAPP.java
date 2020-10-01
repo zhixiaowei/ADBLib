@@ -1,7 +1,7 @@
 package com.adb.process.android;
 
-import com.adb.process.AndroidCtrl;
-import com.adb.command.AndroidAppCmd;
+import com.adb.command.android.app.AndroidAppCmd;
+import com.adb.process.Device;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ public class AndroidAPP extends IAndroid {
 
     private AndroidAppCmd cmd = new AndroidAppCmd();
 
-    public AndroidAPP(AndroidCtrl context) {
+    public AndroidAPP(Device context) {
         super(context);
     }
     

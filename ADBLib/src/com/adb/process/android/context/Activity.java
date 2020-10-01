@@ -1,12 +1,12 @@
 package com.adb.process.android.context;
 
-import com.adb.command.ActivityCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.app.ActivityCmd;
+import com.adb.process.Device;
 import com.adb.process.android.IAndroid;
 
 public class Activity extends IAndroid {
 
-    public Activity(AndroidCtrl context) {
+    public Activity(Device context) {
         super(context);
     }
 

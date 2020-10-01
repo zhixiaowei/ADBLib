@@ -1,12 +1,24 @@
-package com.adb.command;
+package com.adb.command.android;
 
-public class AndroidFileCmd {
+import com.adb.process.Device;
+
+public class AndroidFileCmd{
+
+    /**
+     * 获取sdcard目录
+     * @return
+     * 在真机上测试返回结果为：/sdcard
+     */
+    public String getExternalStorageDirectoryPath(){
+        return "adb shell echo $EXTERNAL_STORAGE";
+    }
+
     /**
      * 获取文件夹目录
      * @param path
      * @return
      */
-    public static String listDir(String path){
+    public String listDir(String path){
         return "adb shell ls "+path;
     }
 
@@ -15,7 +27,7 @@ public class AndroidFileCmd {
      * @param isDelSelf 是否删除自身，为false的清空下仅删除文件夹下所有文件
      * @return
      */
-    public static String delDir(boolean isDelSelf,String path){
+    public String delDir(boolean isDelSelf,String path){
         if(isDelSelf){
             return "adb shell rm -r "+path;
         }else{
@@ -29,7 +41,7 @@ public class AndroidFileCmd {
      * @param suffix
      * @return
      */
-    public static String delDirFileBySuffix(String dir,String suffix){
+    public String delDirFileBySuffix(String dir,String suffix){
         if (suffix == null||suffix.trim().isEmpty()){
             suffix = "";
         }
@@ -44,7 +56,7 @@ public class AndroidFileCmd {
      * @param windowPath
      * @return
      */
-    public static String copyFileAndroid2Window(String androidPath,String windowPath){
+    public String copyFileAndroid2Window(String androidPath,String windowPath){
         return "adb pull "+androidPath+" "+windowPath;
     }
 
@@ -54,7 +66,7 @@ public class AndroidFileCmd {
      * @param windowPath
      * @return
      */
-    public static String copyFileWindow2Android(String androidPath,String windowPath){
+    public String copyFileWindow2Android(String androidPath,String windowPath){
         return "adb push "+windowPath+" "+androidPath;
     }
 
@@ -63,7 +75,7 @@ public class AndroidFileCmd {
      * @param path
      * @return
      */
-    public static String readTextFile(String path){
+    public String readTextFile(String path){
         return "adb shell cat "+path;
     }
 

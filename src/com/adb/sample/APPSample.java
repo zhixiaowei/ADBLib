@@ -1,6 +1,7 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
+import com.adb.process.Device;
 import com.adb.process.android.AndroidAPP;
 
 import java.io.IOException;
@@ -8,7 +9,12 @@ import java.io.IOException;
 public class APPSample {
     public static void main(String[] args) throws IOException {
 
-        AndroidAPP appCtrl = new AndroidAPP(new AndroidCtrl());
+        Device device = new ADBCtrl().firstDevice();
+        if (device == null){
+            System.out.println("找不到连接的设备");
+        }
+
+        AndroidAPP appCtrl = device.managerOfApp();
 
         //获取APP列表
         String list = appCtrl.listApp();

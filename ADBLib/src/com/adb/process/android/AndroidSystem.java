@@ -1,7 +1,7 @@
 package com.adb.process.android;
 
-import com.adb.command.AndroidSystemCmd;
-import com.adb.process.AndroidCtrl;
+import com.adb.command.android.AndroidSystemCmd;
+import com.adb.process.Device;
 
 import java.io.IOException;
 
@@ -775,7 +775,7 @@ import java.io.IOException;
  */
 public class AndroidSystem extends IAndroid{
 
-    public AndroidSystem(AndroidCtrl context) {
+    public AndroidSystem(Device context) {
         super(context);
     }
 
@@ -881,24 +881,6 @@ public class AndroidSystem extends IAndroid{
         }
 
         return "";
-    }
-
-    /**
-     * Android 10 返回键测试可行
-     *
-     * 虚拟按键控制
-     * @param androidKeyEvent 有效参数见：lib.process.android.AndroidKeyEvent
-     * @return
-     */
-    public boolean inputKeyEvent(int androidKeyEvent){
-        try{
-            context.exec(cmd.inputKeyEvent(androidKeyEvent));
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return false;
     }
 
 }

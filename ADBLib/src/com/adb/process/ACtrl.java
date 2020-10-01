@@ -8,9 +8,28 @@ public abstract class ACtrl {
     protected Runtime runtime;
     protected String charset = "GBK";//编码格式
     protected boolean isPrintCmd = false;
+    protected File runtimeDir = null;//运行位置,如adb的地址
 
     public ACtrl(){
         runtime = Runtime.getRuntime();
+    }
+
+    public ACtrl(String runtimePath){
+        this();
+
+        if (runtimePath != null && !runtimePath.trim().isEmpty()) {
+            File temp = new File(runtimePath);
+            if (!temp.exists()) {
+                System.err.println("找不到该文件夹");
+                this.runtimeDir = null;
+            } else if (temp.isDirectory()) {
+                this.runtimeDir = temp;
+            } else{
+                this.runtimeDir = temp.getParentFile();
+            }
+        }else{
+            this.runtimeDir = null;
+        }
     }
 
     /**
@@ -31,8 +50,8 @@ public abstract class ACtrl {
         this.isPrintCmd = isPrintCmd;
     }
 
+
     /**
-     * 对文件夹进行cmd操作
      *
      * @param command
      * @param envp
@@ -40,8 +59,13 @@ public abstract class ACtrl {
      * @return
      * @throws Exception
      */
-    protected String exec(String command, String[] envp, String dir) throws Exception {
-        return getReply(runtime.exec(command, envp, new File(dir)));
+    protected Process exec(String command, String[] envp, File dir) throws IOException {
+
+        if (isPrintCmd){
+            System.out.println(command);
+        }
+
+        return runtime.exec(command, envp, dir);
     }
 
     /**
@@ -51,11 +75,7 @@ public abstract class ACtrl {
      * @throws IOException
      */
     public String exec(String cmd) throws IOException {
-        if (isPrintCmd){
-            System.out.println(cmd);
-        }
-
-        return getReply(runtime.exec(cmd));
+        return getReply(exec(cmd,null,runtimeDir));
     }
 
     /**
@@ -65,11 +85,7 @@ public abstract class ACtrl {
      * @throws IOException
      */
     public void execAPrint(String cmd) throws IOException {
-        if (isPrintCmd){
-            System.out.println(cmd);
-        }
-
-        print(runtime.exec(cmd));
+        print(exec(cmd,null,runtimeDir));
     }
 
     /**
@@ -80,12 +96,7 @@ public abstract class ACtrl {
      * @throws IOException
      */
     public void execASave(String cmd,String path,boolean isPrintOutput) throws IOException {
-
-        if (isPrintCmd){
-            System.out.println(cmd);
-        }
-
-        save(runtime.exec(cmd),path,isPrintOutput);
+        save(exec(cmd,null,runtimeDir),path,isPrintOutput);
     }
 
     /**
@@ -183,6 +194,60 @@ public abstract class ACtrl {
         }
 
         return null;
+    }
+
+    /**
+     * 执行cmd并实时输出（适用于持续输出的命令，如日志）
+     * @param cmd
+     * @return
+     * @throws IOException
+     */
+    public void execAPrint(String cmd,String grep) throws IOException {
+        if (isPrintCmd){
+            System.out.println(cmd);
+        }
+
+        if (grep == null||grep.trim().isEmpty()){
+            print(exec(cmd,null,null));
+        }else{
+            print(exec(cmd,null,null),grep);
+        }
+
+    }
+
+    /**
+     *
+     * 由于 grep 的指令会导致输入流的处理出现堵塞，输出的数据会相对滞后于正常命令行的输出（肉眼可见），采用contains替代解决该问题
+     * 该方案下运行数据与命令行输出的数据时间上相差无几
+     *
+     * 打印输出
+     * @param process
+     */
+    private void print(Process process,String grep) {
+        if (isPrintCmd){
+            System.out.println("grep "+grep);
+        }
+
+        try{
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
+
+            String line;
+
+            while ((line=br.readLine())!=null) {
+                if (line.contains(grep)){
+                    System.out.println(line);
+                }
+            }
+
+            BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream(),Charset.forName(charset)));
+            String errorLine;
+            while ((errorLine = error.readLine())!=null) {
+                System.out.println(errorLine);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void close(){

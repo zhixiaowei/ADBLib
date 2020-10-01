@@ -1,13 +1,14 @@
 package com.adb.sample;
 
-import com.adb.process.AndroidCtrl;
+import com.adb.process.ADBCtrl;
+import com.adb.process.Device;
 import com.adb.process.android.context.Activity;
 import com.adb.process.android.context.ActivityIntentBuilder;
 import com.adb.process.android.context.IContext;
 
 public class ActivitySample {
     public static void main(String[] args) {
-        AndroidCtrl context = new AndroidCtrl();
+        Device context = new ADBCtrl().firstDevice();
         Activity activity = new Activity(context);
 
         //根据包名启动应用（进入默认Activity）
