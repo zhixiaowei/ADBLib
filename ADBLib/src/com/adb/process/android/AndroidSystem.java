@@ -856,6 +856,7 @@ public class AndroidSystem extends IAndroid{
         return "";
     }
 
+    @Deprecated
     public String devIMEI(){
         try {
             return context.exec(cmd.devIMEI());

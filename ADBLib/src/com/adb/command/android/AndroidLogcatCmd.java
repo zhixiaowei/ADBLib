@@ -23,6 +23,7 @@ public class AndroidLogcatCmd{
      * @param path
      * @return
      */
+    @Deprecated
     public String logcat2WindowFile(String path){
         return "adb logcat -v time > "+path;
     }
@@ -38,7 +39,7 @@ public class AndroidLogcatCmd{
             tag = "*";//不过滤TAG
         }
 
-        return "logcat -v time -f /sdcard/test.txt -s TAG:"+tag;
+        return "adb shell logcat -v time -f /sdcard/test.txt -s TAG:"+tag;
     }
 
     public String logcatByPid(String pid) {

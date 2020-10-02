@@ -20,6 +20,7 @@ public class AndroidDeviceCmd{
      *
      * 由于部分设备不支持，建议采用screenshot2AndroidFile然后再复制到电脑端
      */
+    @Deprecated
     public String screenshot2WindowFile(String windowPath){
         return "adb exec-out screencap -p > "+windowPath;
     }

@@ -19,7 +19,7 @@ public class AndroidLogcat extends IAndroid {
      * adb logcat -v time > [path]
      *
      * （小米）Android 10测试无效
-     *暂时没有找到无法正常执行的原因
+     *暂时没有找到无法正常执行的原因,替代方案：save2WindowFile2()
      * @param path
      */
     @Deprecated
@@ -89,15 +89,4 @@ public class AndroidLogcat extends IAndroid {
             e.printStackTrace();
         }
     }
-
-    public void save2WindowFile(LogcatConfig config,String path,boolean isPrint){
-        try {
-            context.execASave(config.cmd,path,isPrint);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
 }

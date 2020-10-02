@@ -1,8 +1,5 @@
 package com.adb.command.android.app;
 
-import com.adb.command.android.IAndroidCmd;
-import com.adb.process.Device;
-
 public class AndroidAppCmd{
 
     /**

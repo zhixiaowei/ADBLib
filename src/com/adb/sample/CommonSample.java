@@ -21,7 +21,7 @@ public class CommonSample {
         //获取已连接的设备
         Device[] device = adb.listDevices();
 
-        //当然如果我们确定连接的设备只有一个，也可以直接调用
+        //如果我们确定连接的设备只有一个或者操作任一台设备均可，无需进行选择时，也可以直接调用
         Device device1 = adb.firstDevice();
 
         //点击指定坐标

@@ -16,6 +16,8 @@ public class AndroidNetworkCmd{
     }
 
     /**
+     *
+     * Android 10测试可行
      * 打开/关闭 WIFI
      * @param isOpen
      * @return
@@ -25,6 +27,8 @@ public class AndroidNetworkCmd{
     }
 
     /**
+     * Android 10测试可行
+     *
      * （如4G通讯）流量开关
      * @param isOpen
      * @return
@@ -47,6 +51,8 @@ public class AndroidNetworkCmd{
     }
 
     /**
+     * Android 10测试可行
+     *
      * 获取设备IP
      * @return
      */
