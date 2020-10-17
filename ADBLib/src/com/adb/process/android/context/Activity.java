@@ -34,7 +34,7 @@ public class Activity extends IAndroid {
         try{
             String msg = context.exec(intent.cmd);
             System.out.println(msg);
-            return true;
+            return !msg.toLowerCase().contains("error:");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -58,7 +58,14 @@ public class Activity extends IAndroid {
         try{
             String msg = context.exec(cmd.startActivity(packageName, canonicalName));
             System.out.println(msg);
-            return true;
+            /**
+             * 异常时的应答如：
+             * Starting: Intent { cmp=com.huangxiaowei.annotatintest/.TestActivity }
+             * Error type 3
+             * Error: Activity class {com.huangxiaowei.annotatintest/com.huangxiaowei.annotatintest.TestActivity} does not exist.
+             */
+
+            return !msg.toLowerCase().contains("error:");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -75,7 +82,7 @@ public class Activity extends IAndroid {
         try{
             String msg = context.exec(cmd.startActivity(packageName));
             System.out.println(msg);
-            return true;
+            return !msg.startsWith("error:")&&!msg.contains("No activities found to run");
         }catch (Exception e){
             e.printStackTrace();
         }

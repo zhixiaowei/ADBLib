@@ -3,7 +3,6 @@ package com.adb.process.android.logcat;
 import com.adb.command.android.AndroidLogcatCmd;
 import com.adb.process.Device;
 import com.adb.process.android.IAndroid;
-
 import java.io.IOException;
 
 public class AndroidLogcat extends IAndroid {
@@ -50,12 +49,15 @@ public class AndroidLogcat extends IAndroid {
      * @param path 文件完整路径
      * @param tag 日志过滤的TAG
      */
-    public void save2AndroidFile(String path,String tag){
+    public boolean save2AndroidFile(String path,String tag){
         try {
-            context.exec(cmd.logcat2AndroidFile(path, tag));
+            String reply = context.exec(cmd.logcat2AndroidFile(path, tag));
+            return !reply.startsWith("error:");
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        return false;
     }
 
     /**

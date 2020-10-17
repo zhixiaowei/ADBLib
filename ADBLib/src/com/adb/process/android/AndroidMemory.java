@@ -35,8 +35,8 @@ public class AndroidMemory extends IAndroid{
         }
 
         try {
-            context.exec(cmd.sendTrimMemory(pid,trimLevel));
-            return true;
+            String reply = context.exec(cmd.sendTrimMemory(pid,trimLevel));
+            return !reply.startsWith("error:");
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -5,6 +5,7 @@ import com.adb.command.ADBCmd;
 public class ADBCtrl extends ACtrl{
 
     private Device[] devices;
+    private ADBCmd cmd = new ADBCmd();
 
     /**
      * 在已经配置adb环境变量的情况下，调用该方法
@@ -20,9 +21,6 @@ public class ADBCtrl extends ACtrl{
     public ADBCtrl(String adbDir){
         super(adbDir);
     }
-
-
-    ADBCmd cmd = new ADBCmd();
 
     @Override
     public void setCharset(String charset) {

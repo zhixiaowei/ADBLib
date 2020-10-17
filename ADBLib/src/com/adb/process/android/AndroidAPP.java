@@ -69,8 +69,8 @@ public class AndroidAPP extends IAndroid {
      */
     public boolean stopApp(String packageName){
         try {
-            context.exec(cmd.stopApp(packageName));
-            return true;
+            String reply = context.exec(cmd.stopApp(packageName));
+            return reply.trim().isEmpty();//正常情况下返回内容为空
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -172,8 +172,8 @@ public class AndroidAPP extends IAndroid {
      */
     public boolean cleanAPPData(String packageName){
         try{
-            context.exec(cmd.cleanAPPData(packageName));
-            return true;
+            String reply = context.exec(cmd.cleanAPPData(packageName));
+            return reply.toLowerCase().contains("success");
         }catch (Exception e){
             e.printStackTrace();
         }

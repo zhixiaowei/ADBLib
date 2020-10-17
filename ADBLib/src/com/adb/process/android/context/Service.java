@@ -26,9 +26,9 @@ public class Service extends IAndroid {
         }
 
         try{
-            String msg = context.exec(cmd.startService(packageName, canonicalName));
-            System.out.println(msg);
-            return true;
+            String reply = context.exec(cmd.startService(packageName, canonicalName));
+            System.out.println(reply);
+            return !reply.startsWith("error:");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -42,9 +42,9 @@ public class Service extends IAndroid {
      */
     public boolean startService(IContext.Intent intent) {
         try{
-            String msg = context.exec(intent.cmd);
-            System.out.println(msg);
-            return true;
+            String reply = context.exec(intent.cmd);
+            System.out.println(reply);
+            return !reply.toLowerCase().contains("error:");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -73,8 +73,8 @@ public class Service extends IAndroid {
      */
     public boolean stopService(String packageName,String canonicalName){
         try {
-            context.exec(cmd.stopService(packageName,canonicalName));
-            return true;
+            String reply = context.exec(cmd.stopService(packageName,canonicalName));
+            return !reply.toLowerCase().contains("error:");
         } catch (IOException e) {
             e.printStackTrace();
         }

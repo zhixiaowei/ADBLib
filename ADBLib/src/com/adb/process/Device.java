@@ -1,7 +1,6 @@
 package com.adb.process;
 
 import com.adb.command.android.AndroidDeviceCmd;
-import com.adb.command.android.AndroidHardwareCmd;
 import com.adb.process.android.*;
 import com.adb.process.android.context.Activity;
 import com.adb.process.android.context.Broadcast;
@@ -92,8 +91,14 @@ public class Device extends ACtrl{
      */
     public boolean click(int x,int y){
         try{
-            exec(cmd.click(226,920));
-            return true;
+            String reply = exec(cmd.click(x,y));
+            if (reply!=null&&reply.trim().isEmpty()){
+                //正常执行的情况下是无应答的
+                return true;
+            }else{
+                System.out.println(reply);
+                return false;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -113,8 +118,15 @@ public class Device extends ACtrl{
      */
     public boolean swipe(int startX,int startY,int endX,int endY){
         try{
-            exec(cmd.swipe(startX,startY,endX,endY));
-            return true;
+            String reply = exec(cmd.swipe(startX,startY,endX,endY));
+
+            if (reply!=null&&reply.trim().isEmpty()){
+                //正常执行的情况下是无应答的
+                return true;
+            }else{
+                System.out.println(reply);
+                return false;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -131,8 +143,15 @@ public class Device extends ACtrl{
      */
     public boolean inputKeyEvent(int androidKeyEvent){
         try{
-            exec(cmd.inputKeyEvent(androidKeyEvent));
-            return true;
+            String reply = exec(cmd.inputKeyEvent(androidKeyEvent));
+
+            if (reply!=null&&reply.trim().isEmpty()){
+                //正常执行的情况下是无应答的
+                return true;
+            }else{
+                System.out.println(reply);
+                return false;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -182,8 +201,8 @@ public class Device extends ACtrl{
      */
     public boolean screenshot2AndroidFile(String androidPath){
         try{
-            exec(cmd.screenshot2AndroidFile(androidPath));
-            return true;
+            String reply = exec(cmd.screenshot2AndroidFile(androidPath));
+            return !reply.startsWith("error:");
         }catch (Exception e){
             e.printStackTrace();
         }

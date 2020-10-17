@@ -61,7 +61,7 @@ public abstract class ACtrl {
      */
     protected Process exec(String command, String[] envp, File dir) throws IOException {
 
-        if (isPrintCmd){
+        if (isPrintCmd) {
             System.out.println(command);
         }
 
@@ -191,9 +191,12 @@ public abstract class ACtrl {
             return builder.toString();
         }catch (Exception e){
             e.printStackTrace();
+
+            //通常adb执行时找不到设备应答前缀为error:,这里也采用该返回
+            return "error:"+e.getMessage();
         }
 
-        return null;
+
     }
 
     /**

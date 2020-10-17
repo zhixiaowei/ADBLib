@@ -31,7 +31,7 @@ public class Broadcast extends IAndroid {
     public final static String MEDIA_MOUNTED = "android.intent.action.MEDIA_MOUNTED";//挂载外部介质
     public final static String POWER_SAVE_MODE_CHANGED = "android.os.action.POWER_SAVE_MODE_CHANGED";//省电模式开启
 
-        public Broadcast(Device context) {
+    public Broadcast(Device context) {
         super(context);
     }
 
@@ -45,9 +45,9 @@ public class Broadcast extends IAndroid {
      */
     public boolean send(IContext.Intent intent) {
         try{
-            String msg = context.exec(intent.cmd);
-            System.out.println(msg);
-            return true;
+            String reply = context.exec(intent.cmd);
+            System.out.println(reply);
+            return !reply.toLowerCase().contains("error:");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -63,8 +63,8 @@ public class Broadcast extends IAndroid {
      */
     public boolean send(String action){
         try {
-            context.exec(cmd.send(action));
-            return true;
+            String reply = context.exec(cmd.send(action));
+            return !reply.toLowerCase().contains("error:");
         } catch (IOException e) {
             e.printStackTrace();
         }
