@@ -2,7 +2,9 @@ package com.adb.sample;
 
 import com.adb.process.ADBCtrl;
 import com.adb.process.Device;
-import com.adb.process.android.AndroidAPP;
+import com.adb.process.android.app.AndroidAPP;
+import com.adb.process.android.app.ProcessInfo;
+import com.adb.process.android.app.ProcessManager;
 
 import java.io.IOException;
 
@@ -36,6 +38,25 @@ public class APPSample {
 
         //如果应用正在运行，获取该进程的ID
         String pid = appCtrl.getPid("com.taobao.idlefish");
+
+        //监听进程ID变化（一般发生进程崩溃/重启才会导致进程变化）
+        ProcessManager process = new ProcessManager(device);
+        process.setListenerOfProcess("com.huangxiaowei.joke", new ProcessManager.IListenerOfProcess() {
+            @Override
+            public void onChange(ProcessInfo info) {
+                System.out.println("监听到进程变化，"+info.pid);
+            }
+
+            @Override
+            public void onNoFoundPid() {
+                System.out.println("找不到该进程");
+            }
+
+            @Override
+            public void onError(String info) {
+                System.out.println("Error："+info);
+            }
+        },5);
 
     }
 }

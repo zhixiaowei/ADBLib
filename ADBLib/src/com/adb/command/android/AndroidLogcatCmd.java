@@ -1,7 +1,5 @@
 package com.adb.command.android;
 
-import com.adb.process.Device;
-
 public class AndroidLogcatCmd{
 
     /**

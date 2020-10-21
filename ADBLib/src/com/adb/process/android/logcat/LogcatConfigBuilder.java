@@ -6,6 +6,7 @@ public class LogcatConfigBuilder {
     private String level = null;
     private String format = null;
     private String filter = null;
+    private String packageName = null;
 
     /**
      * 根据TAG过滤
@@ -37,6 +38,11 @@ public class LogcatConfigBuilder {
         return this;
     }
 
+    public LogcatConfigBuilder filterPackage(String packageName){
+        this.packageName =packageName;
+        return this;
+    }
+
     /**
      * 关键字过滤
      * @param grep
@@ -48,6 +54,6 @@ public class LogcatConfigBuilder {
     }
 
     public LogcatConfig build(){
-        return new LogcatConfig(tag,level,format,filter);
+        return new LogcatConfig(packageName,tag,level,format,filter);
     }
 }

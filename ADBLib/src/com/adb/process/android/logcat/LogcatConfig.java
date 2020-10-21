@@ -18,8 +18,13 @@ public class LogcatConfig{
 
     public String cmd = "";
     public String grep = null;
+    public String packageName = null;
 
-    public LogcatConfig(String tag,String level,String format,String grep){
+    protected LogcatConfig(){}
+
+    public LogcatConfig(String packageName,String tag,String level,String format,String grep){
+
+        this.packageName = packageName;
 
         if (tag == null||tag.isEmpty()){
             tag = "*";

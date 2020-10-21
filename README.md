@@ -221,7 +221,7 @@ package com.adb.sample;
 
 import com.adb.process.ADBCtrl;
 import com.adb.process.Device;
-import com.adb.process.android.AndroidAPP;
+import com.adb.process.android.app.AndroidAPP;
 
 import java.io.IOException;
 

@@ -2,6 +2,7 @@ package com.adb.process;
 
 import com.adb.command.android.AndroidDeviceCmd;
 import com.adb.process.android.*;
+import com.adb.process.android.app.AndroidAPP;
 import com.adb.process.android.context.Activity;
 import com.adb.process.android.context.Broadcast;
 import com.adb.process.android.context.Service;

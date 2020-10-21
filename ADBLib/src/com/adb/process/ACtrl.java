@@ -101,6 +101,40 @@ public abstract class ACtrl {
 
     /**
      * 打印输出
+     * @param cmd
+     */
+    public void exec(String cmd, IExecCallback callback) {
+
+        if (callback == null){
+            return;
+        }
+
+        try{
+            Process process = exec(cmd,null,null);
+            callback.onCreatedProcess(process);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
+
+            String line;
+
+            while ((line=br.readLine())!=null) {
+                callback.onReplyLine(line);
+            }
+
+            BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream(),Charset.forName(charset)));
+            String errorLine;
+            while ((errorLine = error.readLine())!=null) {
+                 callback.onReplyLine(errorLine);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 打印输出
      * @param process
      */
     protected void print(Process process) {
@@ -257,6 +291,12 @@ public abstract class ACtrl {
         if (runtime!=null){
             runtime.gc();
         }
+    }
+
+    public interface IExecCallback{
+        public void onCreatedProcess(Process process);
+        public void onReplyLine(String str);
+        public void onErrorLine(String str);
     }
 
 }

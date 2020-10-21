@@ -57,6 +57,9 @@ public class AndroidAppCmd{
         return "adb shell am force-stop "+packageName;
     }
 
+    public String getPid(String packageName){
+        return "adb shell pidof "+packageName;
+    }
 
     /**
      * 清空APP数据

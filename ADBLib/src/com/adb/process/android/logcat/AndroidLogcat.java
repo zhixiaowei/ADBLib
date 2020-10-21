@@ -3,11 +3,18 @@ package com.adb.process.android.logcat;
 import com.adb.command.android.AndroidLogcatCmd;
 import com.adb.process.Device;
 import com.adb.process.android.IAndroid;
+import com.adb.process.android.app.ProcessInfo;
+import com.adb.process.android.app.ProcessManager;
+
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class AndroidLogcat extends IAndroid {
 
     private AndroidLogcatCmd cmd = new AndroidLogcatCmd();
+    private Process lastProcess;//最后一次的Process
+    private ExecutorService fixedThreadPool= Executors.newFixedThreadPool(3);
 
     public AndroidLogcat(Device context) {
         super(context);
@@ -72,13 +79,67 @@ public class AndroidLogcat extends IAndroid {
         }
     }
 
+    public void listenLogcatByPackage(LogcatConfig config,IExecCallback callback){
+        if (callback == null){
+            return;
+        }
+
+        if (config == null||config.packageName == null||config.packageName.trim().isEmpty()){
+
+        }
+
+        //监听进程，并每5秒检查一下当前进程ID是否有所变化
+        new ProcessManager(context).setListenerOfProcess(config.packageName, new ProcessManager.IListenerOfProcess() {
+            @Override
+            public void onChange(ProcessInfo info) {
+                fixedThreadPool.execute(() -> {
+                    context.exec(cmd.logcatByPid(info.pid), new IExecCallback() {
+                        @Override
+                        public void onCreatedProcess(Process process) {
+                            lastProcess = process;
+                            callback.onCreatedProcess(process);
+                        }
+
+                        @Override
+                        public void onReplyLine(String str) {
+                            callback.onReplyLine(str);
+                        }
+
+                        @Override
+                        public void onErrorLine(String str) {
+                            callback.onErrorLine(str);
+                        }
+                    });
+                });
+            }
+
+
+            @Override
+            public void onNoFoundPid() {
+                if (lastProcess!= null){
+                    lastProcess.destroy();
+                    //判定进程已经被销毁，故而结果该Process，避免堵塞造成资源浪费
+                    lastProcess = null;
+                }
+            }
+
+            @Override
+            public void onError(String info) {
+                callback.onErrorLine(info);
+            }
+        },5);
+
+
+    }
+
     /**
      * 根据PID打印日志和可以配合getPid使用
-     * @param packageName
+     * @param pid
      */
-    public void printByPid(String packageName){
+    public void printByPid(String pid){
+
         try {
-            context.execAPrint(cmd.logcatByPid(packageName));
+            context.execAPrint(cmd.logcatByPid(pid));
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -1,7 +1,8 @@
-package com.adb.process.android;
+package com.adb.process.android.app;
 
 import com.adb.command.android.app.AndroidAppCmd;
 import com.adb.process.Device;
+import com.adb.process.android.IAndroid;
 
 import java.io.IOException;
 
@@ -134,15 +135,8 @@ public class AndroidAPP extends IAndroid {
      */
     public String getPid(String packageName) {
         try {
-            String[] msg = context.exec(context.managerOfSystem().listProcess(packageName)).split(" ");
-
-            for (int i = 1;i<msg.length;i++){
-                String temp = msg[i];
-
-                if (!temp.isEmpty()){
-                    return temp;
-                }
-            }
+            String msg = context.exec(cmd.getPid(packageName));
+            return msg;
         } catch (Exception e) {
             e.printStackTrace();
         }
