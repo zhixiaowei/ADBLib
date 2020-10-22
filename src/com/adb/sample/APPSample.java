@@ -41,7 +41,7 @@ public class APPSample {
 
         //监听进程ID变化（一般发生进程崩溃/重启才会导致进程变化）
         ProcessManager process = new ProcessManager(device);
-        process.setListenerOfProcess("com.huangxiaowei.joke", new ProcessManager.IListenerOfProcess() {
+        process.startListenerOfProcess("com.huangxiaowei.joke", new ProcessManager.IListenerOfProcess() {
             @Override
             public void onChange(ProcessInfo info) {
                 System.out.println("监听到进程变化，"+info.pid);
@@ -55,6 +55,10 @@ public class APPSample {
             @Override
             public void onError(String info) {
                 System.out.println("Error："+info);
+                if (info.startsWith("error")){
+                    process.finish();//结束轮询
+                }
+
             }
         },5);
 

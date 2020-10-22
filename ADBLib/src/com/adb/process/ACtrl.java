@@ -100,31 +100,56 @@ public abstract class ACtrl {
     }
 
     /**
-     * 打印输出
-     * @param cmd
+     *
+     * @param cmd 命令
+     * @param callback 回调
+     * @param grep 每一行的过滤关键字（仅打印回调存在该关键字的日志）
+     * @param isPrint 是否打印
      */
-    public void exec(String cmd, IExecCallback callback) {
+    public void exec(String cmd, IExecCallback callback, String grep,boolean isPrint) {
 
-        if (callback == null){
+        if (callback == null&&!isPrint){
             return;
         }
 
         try{
             Process process = exec(cmd,null,null);
-            callback.onCreatedProcess(process);
+
+            if (callback != null){
+                callback.onCreatedProcess(process);
+            }
+
 
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream(), Charset.forName(charset)));
 
             String line;
 
             while ((line=br.readLine())!=null) {
-                callback.onReplyLine(line);
+
+                if (grep !=null&&!line.contains(grep)){
+                    continue;
+                }
+
+                if(isPrint){
+                    System.out.println(line);
+                }
+
+                if (callback != null){
+                    callback.onReplyLine(line);
+                }
             }
 
             BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream(),Charset.forName(charset)));
             String errorLine;
             while ((errorLine = error.readLine())!=null) {
-                 callback.onReplyLine(errorLine);
+
+                if(isPrint){
+                    System.out.println(errorLine);
+                }
+
+                if (callback != null){
+                    callback.onErrorLine(errorLine);
+                }
             }
 
         }catch (Exception e){

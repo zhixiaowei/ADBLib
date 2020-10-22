@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="ADBLib" />
+    <orderEntry type="library" name="gson-2.7" level="project" />
   </component>
 </module>

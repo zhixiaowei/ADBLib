@@ -38,7 +38,7 @@ public class LogcatConfigBuilder {
         return this;
     }
 
-    public LogcatConfigBuilder filterPackage(String packageName){
+    public LogcatConfigBuilder filterPackageName(String packageName){
         this.packageName =packageName;
         return this;
     }

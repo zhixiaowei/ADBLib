@@ -186,6 +186,24 @@ public class LogcatSample {
                 .build();
 
         logcat.print(config);
+
+        logcat.listenLogcat(config, new ACtrl.IExecCallback() {
+                    @Override
+                    public void onCreatedProcess(Process process) {
+        
+                    }
+        
+                    @Override
+                    public void onReplyLine(String str) {
+                        //实时获取日志处理
+                    }
+        
+                    @Override
+                    public void onErrorLine(String str) {
+                        //返回的错误信息
+                    }
+                },false);//不打印日志，如果为true，则回调的同时打印输出日志
+
     }
 }
 
@@ -255,6 +273,31 @@ public class APPSample {
 
         //如果应用正在运行，获取该进程的ID
         String pid = appCtrl.getPid("com.taobao.idlefish");
+    
+        //监听进程ID变化（一般发生进程崩溃/重启才会导致进程变化）
+        ProcessManager process = new ProcessManager(device);
+        process.startListenerOfProcess("com.huangxiaowei.joke", new ProcessManager.IListenerOfProcess() {
+            @Override
+            public void onChange(ProcessInfo info) {
+                System.out.println("监听到进程变化，"+info.pid);
+            }
+
+            @Override
+            public void onNoFoundPid() {
+                System.out.println("找不到该进程");
+            }
+
+            @Override
+            public void onError(String info) {
+                System.out.println("Error："+info);
+                if (info.startsWith("error")){
+                    process.finish();//结束轮询
+                }
+
+            }
+        },5);
+
+
 
     }
 }

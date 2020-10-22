@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class ProcessManager extends IAndroid{
 
     private ProcessInfo info = new ProcessInfo();
-    private Timer timer = new Timer();
+    private Timer timer;
     private TimerTask task;
 
     public ProcessManager(Device context) {
@@ -21,12 +21,12 @@ public class ProcessManager extends IAndroid{
     }
 
     /**
-     * 设置监听器，监听进程变化
+     * 设置监听器，监听进程变化，在设备断开后会自动结束轮询，也可以通过调用finish的方法主动结束轮询
      * @param packageName 包名
      * @param listener 监听器
      * @param intervalOfSeconds 定期查询进程状态的间隔（秒）
      */
-    public void setListenerOfProcess(String packageName, IListenerOfProcess listener,int intervalOfSeconds){
+    public void startListenerOfProcess(String packageName, IListenerOfProcess listener,int intervalOfSeconds){
 
         info.packageName = packageName;
 
@@ -34,19 +34,25 @@ public class ProcessManager extends IAndroid{
             return;
         }
 
+        timer = new Timer();
         task = new TimerTask() {
             @Override
             public void run() {
-                String pid = context.managerOfApp().getPid(packageName).trim();
+                String reply = context.managerOfApp().getPid(packageName).trim();
 
-                if (pid.isEmpty()){
+                if (reply.isEmpty()){
                     listener.onNoFoundPid();
-                }else if (!info.pid.equals(pid)){
-                    if (StringUtils.isNumber(pid)){
-                        info.pid = pid;
+                }else if (!info.pid.equals(reply)){
+                    if (StringUtils.isNumber(reply)){
+                        info.pid = reply;
                         listener.onChange(info);
                     }else{
-                        listener.onError(pid);
+                        listener.onError(reply);
+
+                        //设备断开，主动结束
+                        if (reply.startsWith("error: no devices")&&reply.contains(context.deviceName)){
+                            finish();
+                        }
                     }
                 }
             }
@@ -59,6 +65,8 @@ public class ProcessManager extends IAndroid{
         try {
             if (task != null){
                 task.cancel();
+                task = null;
+                timer.cancel();
                 task = null;
             }
         }catch (Exception e){

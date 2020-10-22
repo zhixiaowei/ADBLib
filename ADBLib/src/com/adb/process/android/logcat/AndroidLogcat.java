@@ -79,57 +79,67 @@ public class AndroidLogcat extends IAndroid {
         }
     }
 
-    public void listenLogcatByPackage(LogcatConfig config,IExecCallback callback){
-        if (callback == null){
+    /**
+     *
+     * @param config 日志过滤的条件
+     * @param callback 回调
+     * @param isPrint 是否打印日志
+     */
+    public void listenLogcat(LogcatConfig config,IExecCallback callback,boolean isPrint){
+        if (config == null){
             return;
         }
 
-        if (config == null||config.packageName == null||config.packageName.trim().isEmpty()){
+        if (config.packageName == null||config.packageName.trim().isEmpty()){
+            context.exec(config.cmd,callback,config.grep,isPrint);
+        }else{
+            //监听进程，并每5秒检查一下当前进程ID是否有所变化
+            new ProcessManager(context).startListenerOfProcess(config.packageName, new ProcessManager.IListenerOfProcess() {
+                @Override
+                public void onChange(ProcessInfo info) {
+                    fixedThreadPool.execute(() -> {
+                        context.exec(cmd.logcatByPid(info.pid), new IExecCallback() {
+                            @Override
+                            public void onCreatedProcess(Process process) {
+                                lastProcess = process;
+                                if (callback != null){
+                                    callback.onCreatedProcess(process);
+                                }
+                            }
 
-        }
+                            @Override
+                            public void onReplyLine(String str) {
+                                if (callback!=null){
+                                    callback.onReplyLine(str);
+                                }
+                            }
 
-        //监听进程，并每5秒检查一下当前进程ID是否有所变化
-        new ProcessManager(context).setListenerOfProcess(config.packageName, new ProcessManager.IListenerOfProcess() {
-            @Override
-            public void onChange(ProcessInfo info) {
-                fixedThreadPool.execute(() -> {
-                    context.exec(cmd.logcatByPid(info.pid), new IExecCallback() {
-                        @Override
-                        public void onCreatedProcess(Process process) {
-                            lastProcess = process;
-                            callback.onCreatedProcess(process);
-                        }
-
-                        @Override
-                        public void onReplyLine(String str) {
-                            callback.onReplyLine(str);
-                        }
-
-                        @Override
-                        public void onErrorLine(String str) {
-                            callback.onErrorLine(str);
-                        }
+                            @Override
+                            public void onErrorLine(String str) {
+                                if (callback!=null){
+                                    callback.onErrorLine(str);
+                                }
+                            }
+                        },config.grep,isPrint);
                     });
-                });
-            }
-
-
-            @Override
-            public void onNoFoundPid() {
-                if (lastProcess!= null){
-                    lastProcess.destroy();
-                    //判定进程已经被销毁，故而结果该Process，避免堵塞造成资源浪费
-                    lastProcess = null;
                 }
-            }
-
-            @Override
-            public void onError(String info) {
-                callback.onErrorLine(info);
-            }
-        },5);
 
 
+                @Override
+                public void onNoFoundPid() {
+                    if (lastProcess!= null){
+                        lastProcess.destroy();
+                        //判定进程已经被销毁，故而结果该Process，避免堵塞造成资源浪费
+                        lastProcess = null;
+                    }
+                }
+
+                @Override
+                public void onError(String info) {
+                    callback.onErrorLine(info);
+                }
+            },5);
+        }
     }
 
     /**
@@ -146,10 +156,6 @@ public class AndroidLogcat extends IAndroid {
     }
 
     public void print(LogcatConfig config){
-        try {
-            context.execAPrint(config.cmd,config.grep);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        listenLogcat(config,null,true);
     }
 }
