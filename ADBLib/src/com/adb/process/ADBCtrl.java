@@ -67,9 +67,10 @@ public class ADBCtrl extends ACtrl{
         try{
             String msg = exec(cmd.devices());
             String[] list = msg.split("\r\n");
-            devices = new Device[list.length - 1];
 
-            if (list[0].equalsIgnoreCase("List of devices attached")){
+            if (list.length > 1&&list[0].equalsIgnoreCase("List of devices attached")){
+                devices = new Device[list.length - 1];
+
                 for (int i = 1;i<list.length;i++){
                     String deviceName = list[i].split("\t")[0].trim();
                     devices[i-1] = new Device(this,deviceName);
@@ -88,7 +89,7 @@ public class ADBCtrl extends ACtrl{
 
     public Device firstDevice(){
         Device[] list = listDevices();
-        if (list != null) {
+        if (list != null&&list.length > 0) {
             return list[0];
         }else{
             return null;
