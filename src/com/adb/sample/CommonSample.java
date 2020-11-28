@@ -3,7 +3,6 @@ package com.adb.sample;
 import com.adb.process.ADBCtrl;
 import com.adb.process.Device;
 import com.adb.process.android.AndroidSystem;
-import com.adb.process.android.KeyCode;
 import com.adb.process.android.context.Activity;
 
 public class CommonSample {
@@ -23,14 +22,6 @@ public class CommonSample {
 
         //如果我们确定连接的设备只有一个或者操作任一台设备均可，无需进行选择时，也可以直接调用
         Device device1 = adb.firstDevice();
-
-        //点击指定坐标
-        device1.click(230,449);
-
-        //滑动
-        device1.swipe(230,449,200,440);
-
-        device1.inputKeyEvent(KeyCode.KEYCODE_BACK);//执行返回键
 
         AndroidSystem system = device1.managerOfSystem();
         system.listProcess(null);//获取系统进程等

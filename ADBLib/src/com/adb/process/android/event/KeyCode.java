@@ -1,4 +1,4 @@
-package com.adb.process.android;
+package com.adb.process.android.event;
 
 /**
  * 物理/虚拟 按键控制

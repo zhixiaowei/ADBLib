@@ -20,34 +20,25 @@ package com.adb.sample;
 import com.adb.process.ADBCtrl;
 import com.adb.process.Device;
 import com.adb.process.android.AndroidSystem;
-import com.adb.process.android.KeyCode;
 import com.adb.process.android.context.Activity;
 
 public class CommonSample {
     public static void main(String[] args) {
 
-        //如果已经配置过ADB系统环境变量，则可以
+        //如果已经配置过ADB环境变量，则可以
         ADBCtrl adb = new ADBCtrl();
 
-        //在未配置ADB环境变量的情况下，可以指定本地ADB所在地址（所在文件夹）
+        //在未配置ADB环境变量的情况下可以通过调用
         ADBCtrl adb1 = new ADBCtrl("E:\\tool\\adbDir\\");
 
         adb.setCharset("GBK");//设置编码格式，默认为GBK，可不设置
-        adb.isPrintCmd(true);//是否打印执行的命令，可不设置
+        adb.isPrintCmd(true);//是否打印执行的命令
 
         //获取已连接的设备
         Device[] device = adb.listDevices();
 
-        //当然如果我们确定连接的设备只有一个或者想直接操作第一个设备，也可以直接调用
+        //如果我们确定连接的设备只有一个或者操作任一台设备均可，无需进行选择时，也可以直接调用
         Device device1 = adb.firstDevice();
-
-        //点击指定坐标
-        device1.click(230,449);
-
-        //滑动
-        device1.swipe(230,449,200,440);
-
-        device1.inputKeyEvent(KeyCode.KEYCODE_BACK);//执行返回键
 
         AndroidSystem system = device1.managerOfSystem();
         system.listProcess(null);//获取系统进程等
@@ -58,6 +49,67 @@ public class CommonSample {
         //详情可看 com.adb.sample.ActivitySample
 
         //其他API可阅其他Sample
+    }
+}
+```
+
+### Event
+```java
+package com.adb.sample;
+
+import com.adb.process.ADBCtrl;
+import com.adb.process.Device;
+import com.adb.process.android.event.AndroidEvent;
+import com.adb.process.android.event.ClickEventManager;
+import com.adb.process.android.event.KeyCode;
+
+public class EventSample {
+    public static void main(String[] args) {
+
+        Device device = new ADBCtrl().firstDevice();
+        if (device == null){
+            System.out.println("找不到连接的设备");
+        }
+
+        AndroidEvent androidEvent = device.managerOfEvent();
+
+        //点击指定坐标
+        androidEvent.click(230,449);
+
+        //滑动
+        androidEvent.swipe(230,449,200,440);
+
+        androidEvent.inputKeyEvent(KeyCode.KEYCODE_BACK);//执行返回键
+
+        //监听设备的点击/滑动/松开事件
+        androidEvent.listenOfClickEvent(new ClickEventManager.IEventCallback() {
+            @Override
+            public void onCreateProcess(Process process) {
+                //获取Process，并在需要的时候调用process结束任务
+            }
+
+            @Override
+            public void onEventDown(int x, int y) {
+                System.out.println("点击坐标：("+x+","+y+")");
+
+//                androidEvent.click(x,y); //可以通过click点击同样位置，但不能在这个地方写，会导致死循环的
+            }
+
+            @Override
+            public void onEventUp(int x, int y) {
+                System.out.println("松开：("+x+","+y+")");
+            }
+
+            @Override
+            public void onEventMove(int x, int y) {
+                System.out.println("滑动坐标：("+x+","+y+")");
+            }
+
+            @Override
+            public void onError(String msg) {
+                //执行错误时，回调该方法
+            }
+        });
     }
 }
 

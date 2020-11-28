@@ -6,6 +6,7 @@ import com.adb.process.android.app.AndroidAPP;
 import com.adb.process.android.context.Activity;
 import com.adb.process.android.context.Broadcast;
 import com.adb.process.android.context.Service;
+import com.adb.process.android.event.AndroidEvent;
 import com.adb.process.android.logcat.AndroidLogcat;
 
 import java.io.File;
@@ -71,6 +72,8 @@ public class Device extends ACtrl{
         return new AndroidNetwork(this);
     }
 
+    public AndroidEvent managerOfEvent(){return new AndroidEvent(this);}
+
     private AndroidDeviceCmd cmd = new AndroidDeviceCmd();
 
     @Override
@@ -82,83 +85,7 @@ public class Device extends ACtrl{
         return super.exec(command, envp, dir);
     }
 
-    /**
-     *  Android 10测试可行
-     *
-     * 点击指定坐标
-     * @param x
-     * @param y
-     * @return
-     */
-    public boolean click(int x,int y){
-        try{
-            String reply = exec(cmd.click(x,y));
-            if (reply!=null&&reply.trim().isEmpty()){
-                //正常执行的情况下是无应答的
-                return true;
-            }else{
-                System.out.println(reply);
-                return false;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return false;
-    }
 
-
-
-    /**
-     * 滑屏
-     * 参数 300 1000 300 500 分别表示起始点x坐标 起始点y坐标 结束点x坐标 结束点y坐标
-     * @param startX
-     * @param startY
-     * @param endX
-     * @param endY
-     * @return
-     */
-    public boolean swipe(int startX,int startY,int endX,int endY){
-        try{
-            String reply = exec(cmd.swipe(startX,startY,endX,endY));
-
-            if (reply!=null&&reply.trim().isEmpty()){
-                //正常执行的情况下是无应答的
-                return true;
-            }else{
-                System.out.println(reply);
-                return false;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return false;
-    }
-
-    /**
-     * Android 10 返回键测试可行
-     *
-     * 虚拟按键控制
-     * @param androidKeyEvent 有效参数见：lib.process.android.AndroidKeyEvent
-     * @return
-     */
-    public boolean inputKeyEvent(int androidKeyEvent){
-        try{
-            String reply = exec(cmd.inputKeyEvent(androidKeyEvent));
-
-            if (reply!=null&&reply.trim().isEmpty()){
-                //正常执行的情况下是无应答的
-                return true;
-            }else{
-                System.out.println(reply);
-                return false;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return false;
-    }
 
     /**
      * 截屏并保存到window

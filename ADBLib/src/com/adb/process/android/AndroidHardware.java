@@ -2,6 +2,7 @@ package com.adb.process.android;
 
 import com.adb.command.android.AndroidHardwareCmd;
 import com.adb.process.Device;
+import com.sun.glass.ui.Size;
 
 import java.io.IOException;
 
@@ -23,6 +24,26 @@ public class AndroidHardware extends IAndroid {
             e.printStackTrace();
         }
         return "";
+    }
+
+    /**
+     * 如果获取大小失败则返回空
+     * @return
+     */
+    public Size getScreenSize(){
+        try {
+            String[] msg = screenSize().substring(15).trim().split("x");
+
+            Size size = new Size();
+            size.width = Integer.parseInt(msg[0]);
+            size.height = Integer.parseInt(msg[1]);
+
+            return size;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     /**
